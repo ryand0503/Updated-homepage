@@ -296,8 +296,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg-page);color
 .modal-bg.open{opacity:1;pointer-events:auto;}
 .modal{background:#fff;border-radius:14px;width:660px;max-width:94vw;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);transform:scale(.96) translateY(12px);transition:transform .25s;}
 .modal-bg.open .modal{transform:scale(1) translateY(0);}
-.modal-img{width:100%;height:220px;object-fit:cover;background:linear-gradient(135deg,var(--red-dark),var(--red-mid));}
-.modal-img-fallback{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-size:60px;opacity:.3;background:linear-gradient(135deg,var(--red-dark),var(--red-mid));}
+.modal-img{width:100%;height:280px;object-fit:cover;display:block;}
+.modal-img-fallback{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:60px;opacity:.3;background:linear-gradient(135deg,var(--red-dark),var(--red-mid));}
 .modal-body{padding:24px 28px;}
 .modal-tag{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--red);background:var(--red-pale);padding:3px 8px;border-radius:3px;display:inline-block;margin-bottom:10px;}
 .modal-title{font-size:20px;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:10px;}
@@ -346,22 +346,98 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg-page);color
 /* ── HOME HIGHLIGHTS ── */
 .hl-section-hdr{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .hl-section-hdr::after{content:'';flex:1;height:1px;background:var(--border);}
-.highlights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
-.hl-card{background:var(--card);border-radius:10px;padding:16px 18px;border:1px solid var(--border);display:flex;flex-direction:column;gap:6px;transition:box-shadow .18s,transform .18s;position:relative;overflow:hidden;}
-.hl-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-2px);}
-.hl-card-accent{position:absolute;top:0;left:0;width:3px;height:100%;}
-.hl-card-accent.red{background:var(--red);}
-.hl-card-accent.green{background:#1a8c55;}
-.hl-card-accent.amber{background:#c46a00;}
-.hl-card-accent.blue{background:#1a5fb4;}
-.hl-card-accent.purple{background:#7c3aed;}
-.hl-sector{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);display:flex;align-items:center;gap:5px;margin-left:8px;}
-.hl-icon{font-size:16px;line-height:1;}
-.hl-headline{font-size:13px;font-weight:700;line-height:1.35;color:var(--text);margin-left:8px;margin-top:2px;}
-.hl-teaser{font-size:12px;color:var(--text2);line-height:1.45;margin-left:8px;flex:1;}
-.hl-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px;margin-left:8px;}
-.hl-date{font-size:11px;color:var(--text-muted);}
-.hl-cta{font-size:11px;font-weight:700;color:var(--red);cursor:pointer;background:none;border:none;padding:0;text-decoration:none;}
+/* ── HIGHLIGHTS CAROUSEL ── */
+.hl-carousel-wrap{position:relative;margin-bottom:8px;}
+.hl-carousel-track-outer{overflow:hidden;border-radius:12px;}
+.hl-carousel-track{display:flex;gap:14px;transition:transform .38s cubic-bezier(.4,0,.2,1);will-change:transform;}
+/* Hero image tile */
+.hl-card{position:relative;flex:0 0 auto;box-sizing:border-box;border-radius:12px;overflow:hidden;cursor:pointer;transition:box-shadow .22s,transform .22s;display:flex;flex-direction:column;justify-content:flex-end;}
+.hl-card.size-s{width:220px;height:200px;}
+.hl-card.size-m{width:340px;height:240px;}
+.hl-card.size-l{width:520px;height:280px;}
+/* background image layer */
+.hl-bg-placeholder{position:absolute;inset:0;z-index:0;}
+.hl-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s ease;z-index:1;}
+.hl-card:hover .hl-bg{transform:scale(1.04);}
+.hl-overlay{z-index:2;}
+.hl-content{z-index:3;}
+.hl-size-picker{z-index:20;}
+.hl-edit-img-btn{z-index:20;}
+/* dark gradient overlay */
+.hl-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0.82) 100%);}
+/* content sits above overlay */
+.hl-content{position:relative;z-index:2;padding:14px 16px;}
+.hl-sector{font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);display:inline-flex;align-items:center;gap:5px;margin-bottom:5px;}
+.hl-badge{display:inline-block;background:var(--red);color:#fff;font-size:8px;font-weight:800;padding:2px 6px;border-radius:6px;text-transform:uppercase;letter-spacing:.04em;vertical-align:middle;margin-left:4px;}
+.hl-badge.green{background:#1a8c55;}.hl-badge.amber{background:#c46a00;}.hl-badge.blue{background:#1a5fb4;}
+.hl-headline{font-size:15px;font-weight:800;line-height:1.28;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5);margin-bottom:5px;}
+.hl-card.size-l .hl-headline{font-size:18px;}
+.hl-card.size-s .hl-headline{font-size:13px;}
+.hl-teaser{font-size:11px;color:rgba(255,255,255,.82);line-height:1.45;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.hl-footer{display:flex;align-items:center;justify-content:space-between;}
+.hl-date{font-size:10px;color:rgba(255,255,255,.6);}
+.hl-cta{font-size:11px;font-weight:700;color:#fff;background:var(--red);border:none;padding:4px 12px;border-radius:6px;cursor:pointer;text-decoration:none;transition:background .15s;}
+.hl-cta:hover{background:#a0111f;}
+/* hover glow */
+.hl-card:hover{box-shadow:0 10px 36px rgba(0,0,0,.28);transform:translateY(-3px);}
+/* edit mode overlays */
+body.edit-mode .hl-card{outline:2px dashed rgba(255,255,255,.5);}
+body.edit-mode .hl-card:hover{outline-color:var(--red);}
+/* size picker (edit mode) */
+.hl-size-picker{display:none;position:absolute;top:8px;left:8px;z-index:20;gap:4px;}
+body.edit-mode .hl-card:hover .hl-size-picker{display:flex;}
+.hl-sz-btn{font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;border:none;background:rgba(0,0,0,.55);color:#fff;cursor:pointer;backdrop-filter:blur(4px);}
+.hl-sz-btn:hover{background:var(--red);}
+/* edit image button (edit mode) */
+.hl-edit-img-btn{display:none;position:absolute;top:8px;right:8px;z-index:20;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:6px;padding:4px 10px;font-size:10px;font-weight:700;cursor:pointer;backdrop-filter:blur(4px);}
+body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
+.hl-edit-img-btn:hover{background:var(--red);}
+/* carousel nav */
+.hl-nav{display:flex;align-items:center;justify-content:space-between;margin-top:10px;}
+.hl-arrows{display:flex;gap:8px;}
+.hl-arrow{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,border-color .15s;}
+.hl-arrow:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.hl-arrow:disabled{opacity:.3;cursor:default;}
+.hl-dots{display:flex;gap:6px;align-items:center;}
+.hl-dot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s,transform .2s;}
+.hl-dot.active{background:var(--red);transform:scale(1.3);}
+.hl-icon{font-size:13px;line-height:1;}
+.hl-date{font-size:10px;color:rgba(255,255,255,.6);}
+/* ── TILE EDITOR SIDE PANEL ── */
+#hlImgEditor{display:none;position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.72);}
+#hlImgEditor.open{display:block;}
+.hlpanel{background:var(--card);position:absolute;top:0;right:0;bottom:0;width:340px;max-width:95vw;display:flex;flex-direction:column;overflow-y:auto;box-shadow:-6px 0 40px rgba(0,0,0,.4);}
+.hlpanel-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--card);z-index:2;}
+.hlpanel-hdr strong{font-size:15px;color:var(--text);}
+.hlpanel-close{background:none;border:none;font-size:20px;color:var(--text2);cursor:pointer;line-height:1;padding:2px;}
+.hlpanel-close:hover{color:var(--text);}
+.hlpanel-body{padding:20px;display:flex;flex-direction:column;gap:0;}
+.hlpanel-section{padding:18px 0;border-bottom:1px solid var(--border);}
+.hlpanel-section:last-child{border-bottom:none;}
+.hlpanel-section-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;}
+.hlpanel-img-thumb{width:100%;height:140px;border-radius:8px;object-fit:cover;display:block;background:var(--border);}
+.hlpanel-img-thumb-ph{width:100%;height:140px;border-radius:8px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:36px;color:var(--text2);}
+.hlpanel-change-btn{margin-top:10px;background:var(--red);color:#fff;border:none;border-radius:6px;padding:7px 18px;font-size:13px;font-weight:700;cursor:pointer;display:inline-block;}
+.hlpanel-change-btn:hover{background:#a0111f;}
+.hlpanel-url-row{display:none;margin-top:10px;flex-direction:column;gap:6px;}
+.hlpanel-url-row.open{display:flex;}
+.hlpanel-lbl{font-size:12px;font-weight:600;color:var(--text2);margin-bottom:4px;display:block;}
+.hlpanel-inp{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:13px;box-sizing:border-box;font-family:inherit;}
+.hlpanel-inp:focus{outline:none;border-color:var(--red);}
+.hlpanel-textarea{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:13px;box-sizing:border-box;font-family:inherit;resize:vertical;min-height:70px;}
+.hlpanel-textarea:focus{outline:none;border-color:var(--red);}
+.hlpanel-toggle-row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.hlpanel-toggle-lbl{font-size:13px;color:var(--text);}
+.hlpanel-toggle{position:relative;width:40px;height:22px;flex-shrink:0;}
+.hlpanel-toggle input{opacity:0;width:0;height:0;}
+.hlpanel-toggle-slider{position:absolute;inset:0;background:var(--border);border-radius:22px;transition:background .2s;cursor:pointer;}
+.hlpanel-toggle-slider:before{content:'';position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s;}
+.hlpanel-toggle input:checked + .hlpanel-toggle-slider{background:var(--red);}
+.hlpanel-toggle input:checked + .hlpanel-toggle-slider:before{transform:translateX(18px);}
+.hlpanel-footer{padding:16px 20px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end;position:sticky;bottom:0;background:var(--card);}
+.hlpanel-save{background:var(--red);color:#fff;border:none;border-radius:6px;padding:8px 22px;font-weight:700;cursor:pointer;font-size:13px;}
+.hlpanel-save:hover{background:#a0111f;}
+.hlpanel-cancel{background:var(--border);color:var(--text);border:none;border-radius:6px;padding:8px 16px;cursor:pointer;font-size:13px;}
 .live-tiles-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
 .ltile-skel{height:130px;border-radius:10px;background:linear-gradient(90deg,var(--border) 25%,var(--card) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
@@ -538,48 +614,117 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg-page);color
 
       <!-- COMPANY HIGHLIGHTS -->
       <div class="hl-section-hdr" style="margin-top:20px;">🏢 Company Highlights</div>
-      <div class="highlights-grid">
-        <div class="hl-card" onclick="openModal({title:'Petra Energy Secures RM 420M HUC Contract for Kasawari Gas Development',tag:'Breaking',tagClass:'',source:'Corporate Affairs',date:'4 days ago',img:'',emoji:'📰',excerpt:'Petra Energy Berhad has been awarded the Hook-Up and Commissioning scope by PETRONAS Carigali for the Kasawari Gas Development. The contract spans 36 months and covers all HUC activities on Kasawari-A and Kasawari-B platforms in the South China Sea.'})">
-          <div class="hl-card-accent red"></div>
-          <div class="hl-sector"><span class="hl-icon">📰</span> Petra News <span class="hl-badge">Breaking</span></div>
-          <div class="hl-headline">Petra Secures RM 420M Kasawari HUC Contract</div>
-          <div class="hl-teaser">Awarded by PETRONAS Carigali — 36-month HUC scope, Kasawari-A &amp; B platforms, South China Sea.</div>
-          <div class="hl-footer"><span class="hl-date">4 days ago</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('news')">All news →</button></div>
+      <div class="hl-carousel-wrap" id="hlCarouselWrap">
+        <div class="hl-carousel-track-outer">
+          <div class="hl-carousel-track" id="hlTrack">
+
+            <div class="hl-card size-l" data-link="news" data-modal='{"title":"Petra Energy Secures RM 420M HUC Contract for Kasawari Gas Development","tag":"Breaking","tagClass":"","source":"Corporate Affairs","date":"4 days ago","img":"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80","emoji":"📰","excerpt":"Petra Energy Berhad has been awarded the Hook-Up and Commissioning scope by PETRONAS Carigali for the Kasawari Gas Development. The contract spans 36 months and covers all HUC activities on Kasawari-A and Kasawari-B platforms in the South China Sea."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#1a0a0a,#5c1020)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">📰</span> Petra News <span class="hl-badge">Breaking</span></div>
+                <div class="hl-headline">Petra Secures RM 420M Kasawari HUC Contract</div>
+                <div class="hl-teaser">Awarded by PETRONAS Carigali — 36-month HUC scope, Kasawari-A &amp; B platforms, South China Sea.</div>
+                <div class="hl-footer"><span class="hl-date">4 days ago</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('news')">Read more →</button></div>
+              </div>
+            </div>
+
+            <div class="hl-card size-m" data-link="hsse" data-modal='{"title":"847 LTI-Free Days — Strongest Safety Streak Ever","tag":"HSSE","tagClass":"","source":"HSSE Division","date":"July 2025","img":"https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80","emoji":"🛡","excerpt":"847 consecutive Lost Time Incident-free days. 96% training compliance across all sites. Near-miss reports down 20% vs May. All site audit scores above 88%. HSSE team on track for the annual Zero Harm target."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#061a0e,#1a4a28)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">🛡</span> HSSE <span class="hl-badge green">On Track</span></div>
+                <div class="hl-headline">847 LTI-Free Days — Strongest Safety Streak Ever</div>
+                <div class="hl-teaser">96% training compliance. Near-miss reports down 20% vs May. All audit scores above 88%.</div>
+                <div class="hl-footer"><span class="hl-date">July 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('hsse')">Read more →</button></div>
+              </div>
+            </div>
+
+            <div class="hl-card size-m" data-link="" data-modal='{"title":"Flexible Work Arrangement — Applications Now Open","tag":"HR","tagClass":"blue","source":"Human Resources","date":"Effective Aug 2025","img":"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80","emoji":"🏠","excerpt":"Effective 1 August 2025, eligible employees (Grade 3 and above, non-operations roles) may apply for up to 2 days work-from-home per week. Core hours: 9am-4pm. Full policy in HR Policy Manual Rev. 7."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#060e1a,#1a3060)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">👥</span> HR &amp; Benefits <span class="hl-badge blue">New</span></div>
+                <div class="hl-headline">Flexible Work Arrangement — Applications Open</div>
+                <div class="hl-teaser">Grade 3+ non-ops: up to 2 WFH days/week. Effective 1 August 2025.</div>
+                <div class="hl-footer"><span class="hl-date">Effective 1 Aug</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('hr')">Read more →</button></div>
+              </div>
+            </div>
+
+            <div class="hl-card size-m" data-link="projects" data-modal='{"title":"Kasawari HUC Enters Mobilisation Phase","tag":"Projects","tagClass":"","source":"Projects Division","date":"July 2025","img":"https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80","emoji":"🏗","excerpt":"The RM 420M Kasawari HUC contract has entered the mobilisation phase. Cendor Phase 3 is 62% complete. SAP go-live remains on track for 1 October 2025. 23 active projects across Malaysia and Brunei."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#100620,#3a1a6c)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">🏗</span> Projects <span class="hl-badge" style="background:#7c3aed;">23 Active</span></div>
+                <div class="hl-headline">Kasawari HUC Enters Mobilisation Phase</div>
+                <div class="hl-teaser">RM 420M contract underway. Cendor Phase 3: 62% complete. SAP go-live: 1 Oct 2025.</div>
+                <div class="hl-footer"><span class="hl-date">July 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('projects')">Read more →</button></div>
+              </div>
+            </div>
+
+            <div class="hl-card size-m" data-link="" data-modal='{"title":"Annual Fire Drill 2025 — All Offices 18 July","tag":"Calendar","tagClass":"","source":"HSSE Division","date":"18 Jul 2025","img":"https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80","emoji":"🔥","excerpt":"Annual fire drill across all Petra Energy offices on 18 July 2025. KL HQ evacuation: 10:00 AM sharp. All employees must participate and proceed to designated assembly points. Hari Raya Haji office closure 31 July."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#1a0600,#6a2000)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">📅</span> Calendar <span class="hl-badge">This Week</span></div>
+                <div class="hl-headline">Annual Fire Drill — 18 July 10AM, All Buildings</div>
+                <div class="hl-teaser">Mandatory participation. KL HQ 10:00 AM. Next: Hari Raya Haji 31 July (office closed).</div>
+                <div class="hl-footer"><span class="hl-date">18 Jul 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('calendar')">Full calendar →</button></div>
+              </div>
+            </div>
+
+            <div class="hl-card size-m" data-link="gallery" data-modal='{"title":"Gallery: Q2 Town Hall, Cendor Team & Safety Awards Night","tag":"Gallery","tagClass":"","source":"Corporate Comms","date":"Jun–Jul 2025","img":"https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80","emoji":"📸","excerpt":"Latest photos from Q2 Town Hall at KL HQ, Cendor Offshore team, BOSIET Training Batch 12, and the Safety Awards Night. View the full gallery for all event photos."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#100520,#3a1860)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">📸</span> Gallery</div>
+                <div class="hl-headline">Q2 Town Hall, Cendor Team &amp; Safety Awards Night</div>
+                <div class="hl-teaser">Latest photos from KL HQ, Cendor Offshore, BOSIET Batch 12 &amp; more.</div>
+                <div class="hl-footer"><span class="hl-date">Jun–Jul 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('gallery')">View gallery →</button></div>
+              </div>
+            </div>
+
+            <div class="hl-card size-m" data-link="policies" data-modal='{"title":"HSSE Policy Manual Rev. 5 — Now Published","tag":"Policies","tagClass":"","source":"HSSE &amp; Compliance","date":"Jun 2025","img":"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80","emoji":"📋","excerpt":"HSSE Policy Manual Rev. 5 is now published. Key updates: contractor safety management, updated life-saving rules, new incident reporting flow, and 2025 audit checklist."}'>
+              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80')"></div>
+              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#0a1200,#2a4000)"></div>
+              <div class="hl-overlay"></div>
+              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
+              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
+              <div class="hl-content">
+                <div class="hl-sector"><span class="hl-icon">📋</span> Policies <span class="hl-badge amber">Updated</span></div>
+                <div class="hl-headline">HSSE Policy Manual Rev. 5 — Now Published</div>
+                <div class="hl-teaser">Contractor safety management, life-saving rules &amp; incident reporting all updated for 2025.</div>
+                <div class="hl-footer"><span class="hl-date">Jun 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('policies')">Read more →</button></div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="hl-card" onclick="switchPage('hsse')">
-          <div class="hl-card-accent green"></div>
-          <div class="hl-sector"><span class="hl-icon">🛡</span> HSSE <span class="hl-badge green">On Track</span></div>
-          <div class="hl-headline">847 LTI-Free Days — Strongest Safety Streak Ever</div>
-          <div class="hl-teaser">96% training compliance. Near-miss reports down 20% vs May. All site audit scores above 88%.</div>
-          <div class="hl-footer"><span class="hl-date">July 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('hsse')">Dashboard →</button></div>
-        </div>
-        <div class="hl-card" onclick="openModal({title:'Flexible Work Arrangement — Applications Now Open',tag:'HR',tagClass:'blue',source:'Human Resources',date:'Effective Aug 2025',img:'',emoji:'🏠',excerpt:'Effective 1 August 2025, eligible employees (Grade 3 and above, non-operations roles) may apply for up to 2 days work-from-home per week. Core hours: 9am-4pm. Full policy in HR Policy Manual Rev. 7.'})">
-          <div class="hl-card-accent blue"></div>
-          <div class="hl-sector"><span class="hl-icon">👥</span> HR &amp; Benefits <span class="hl-badge" style="background:rgba(26,95,180,.12);color:#1a5fb4;">New</span></div>
-          <div class="hl-headline">Flexible Work Arrangement — Applications Open</div>
-          <div class="hl-teaser">Grade 3+ non-ops: up to 2 WFH days/week. Core hours 9am–4pm. Effective 1 August 2025.</div>
-          <div class="hl-footer"><span class="hl-date">Effective 1 Aug 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('hr')">HR portal →</button></div>
-        </div>
-        <div class="hl-card" onclick="switchPage('projects')">
-          <div class="hl-card-accent purple"></div>
-          <div class="hl-sector"><span class="hl-icon">🏗</span> Projects <span class="hl-badge" style="background:rgba(124,58,237,.12);color:#7c3aed;">23 Active</span></div>
-          <div class="hl-headline">Kasawari HUC Enters Mobilisation Phase</div>
-          <div class="hl-teaser">RM 420M contract underway. Cendor Phase 3: 62% complete. SAP go-live: 1 Oct 2025.</div>
-          <div class="hl-footer"><span class="hl-date">July 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('projects')">All projects →</button></div>
-        </div>
-        <div class="hl-card" onclick="openModal({title:'Annual Fire Drill 2025',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'18 Jul 2025',img:'',emoji:'🔥',excerpt:'Annual fire drill across all Petra Energy offices on 18 July 2025. KL HQ evacuation: 10:00 AM sharp. All employees must participate. Hari Raya Haji office closure 31 July.'})">
-          <div class="hl-card-accent red"></div>
-          <div class="hl-sector"><span class="hl-icon">📅</span> Calendar <span class="hl-badge">This Week</span></div>
-          <div class="hl-headline">Annual Fire Drill — 18 July 10AM, All Buildings</div>
-          <div class="hl-teaser">Mandatory participation. KL HQ 10:00 AM. Hari Raya Haji holiday 31 July (office closed).</div>
-          <div class="hl-footer"><span class="hl-date">18 Jul 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('calendar')">Full calendar →</button></div>
-        </div>
-        <div class="hl-card" onclick="switchPage('gallery')">
-          <div class="hl-card-accent purple"></div>
-          <div class="hl-sector"><span class="hl-icon">📸</span> Gallery</div>
-          <div class="hl-headline">Q2 Town Hall, Cendor Team &amp; Safety Awards Night</div>
-          <div class="hl-teaser">Latest photos from Q2 Town Hall at KL HQ, Cendor Offshore, BOSIET Training Batch 12 &amp; more.</div>
-          <div class="hl-footer"><span class="hl-date">Jun–Jul 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('gallery')">View gallery →</button></div>
+        <!-- Carousel nav -->
+        <div class="hl-nav">
+          <div class="hl-dots" id="hlDots"></div>
+          <div class="hl-arrows">
+            <button class="hl-arrow" id="hlPrev" onclick="hlMove(-1)">&#8592;</button>
+            <button class="hl-arrow" id="hlNext" onclick="hlMove(1)">&#8594;</button>
+          </div>
         </div>
       </div>
 
@@ -886,6 +1031,76 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg-page);color
 </main>
 
 <!-- MODAL -->
+<!-- TILE EDITOR SIDE PANEL -->
+<div id="hlImgEditor">
+  <div class="hlpanel">
+    <div class="hlpanel-hdr">
+      <strong>Edit tile</strong>
+      <button class="hlpanel-close" onclick="hlCloseImgEditor()">✕</button>
+    </div>
+    <div class="hlpanel-body">
+
+      <!-- Background image -->
+      <div class="hlpanel-section">
+        <div class="hlpanel-section-title">Background image</div>
+        <div id="hlPanelThumb"><div class="hlpanel-img-thumb-ph">🖼</div></div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+          <button class="hlpanel-change-btn" onclick="document.getElementById('hlFileInput').click()">📁 Upload from computer</button>
+          <button class="hlpanel-change-btn" style="background:var(--border);color:var(--text);" onclick="hlToggleUrlRow()">🔗 Paste URL</button>
+        </div>
+        <input type="file" id="hlFileInput" accept="image/*,application/pdf" style="display:none" onchange="hlLoadFile(this)">
+        <div class="hlpanel-url-row" id="hlUrlRow">
+          <span class="hlpanel-lbl">Image URL</span>
+          <input class="hlpanel-inp" id="hlImgUrl" type="text" placeholder="https://example.com/photo.jpg" oninput="hlImgPreview()">
+          <span style="font-size:11px;color:var(--text2);">Right-click any image online → "Copy image address" and paste here.</span>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <div class="hlpanel-section">
+        <label class="hlpanel-lbl" for="hlEditTitle">Title</label>
+        <input class="hlpanel-inp" id="hlEditTitle" type="text" placeholder="Tile headline">
+      </div>
+
+      <!-- Caption -->
+      <div class="hlpanel-section">
+        <label class="hlpanel-lbl" for="hlEditCaption">Caption</label>
+        <textarea class="hlpanel-textarea" id="hlEditCaption" placeholder="Short description shown on the tile"></textarea>
+      </div>
+
+      <!-- Button / link -->
+      <div class="hlpanel-section">
+        <div class="hlpanel-section-title">Call to action</div>
+        <label class="hlpanel-lbl" for="hlEditBtnLabel">Button label</label>
+        <input class="hlpanel-inp" id="hlEditBtnLabel" type="text" placeholder="Read more →" style="margin-bottom:12px;">
+        <label class="hlpanel-lbl" for="hlEditBtnLink">Button link</label>
+        <input class="hlpanel-inp" id="hlEditBtnLink" type="text" placeholder="https://petraenergy.sharepoint.com/...">
+        <div class="hlpanel-toggle-row" style="margin-top:12px;">
+          <span class="hlpanel-toggle-lbl">Open link in a new tab</span>
+          <label class="hlpanel-toggle"><input type="checkbox" id="hlEditNewTab" checked><span class="hlpanel-toggle-slider"></span></label>
+        </div>
+      </div>
+
+      <!-- Accessibility -->
+      <div class="hlpanel-section">
+        <div class="hlpanel-section-title">Accessibility</div>
+        <span style="font-size:12px;color:var(--text2);display:block;margin-bottom:10px;">Alternative text for people who can't see the image.</span>
+        <label class="hlpanel-lbl" for="hlEditAlt">Alternative text</label>
+        <input class="hlpanel-inp" id="hlEditAlt" type="text" placeholder="Describe the image">
+        <div class="hlpanel-toggle-row" style="margin-top:12px;">
+          <span class="hlpanel-toggle-lbl">Mark as decorative</span>
+          <label class="hlpanel-toggle"><input type="checkbox" id="hlEditDecorative"><span class="hlpanel-toggle-slider"></span></label>
+        </div>
+      </div>
+
+    </div>
+    <div class="hlpanel-footer">
+      <button class="hlpanel-cancel" onclick="hlCloseImgEditor()">Cancel</button>
+      <button class="hlpanel-save" onclick="hlSaveImg()">Save</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-bg" id="modalBg" onclick="closeModal(event)">
   <div class="modal">
     <div class="modal-header-area">
@@ -1438,11 +1653,169 @@ window.renderFeedNews=function(feedKey,silent){
 };
 window.refreshCurrentTab=function(s){if(window._curTab==='petra')window.renderPetraNews();else window.renderFeedNews(window._curTab,s);};
 
+/* ── CARD CLICK — reads data-modal attribute ── */
+document.addEventListener('click',function(e){
+  var card=e.target.closest('.hl-card');
+  if(!card)return;
+  if(e.target.closest('.hl-size-picker')||e.target.closest('.hl-edit-img-btn')||e.target.closest('.hl-cta'))return;
+  var raw=card.getAttribute('data-modal');
+  if(raw){
+    var data;
+    try{data=JSON.parse(raw);}catch(err){
+      // fallback: build data from DOM
+      data={
+        title:(card.querySelector('.hl-headline')||{}).textContent||'',
+        tag:(card.querySelector('.hl-sector')||{}).textContent||'',
+        tagClass:'',source:'',date:(card.querySelector('.hl-date')||{}).textContent||'',
+        excerpt:(card.querySelector('.hl-teaser')||{}).textContent||'',img:'',emoji:'📰'
+      };
+    }
+    // always grab image from the card background if data.img is empty
+    if(!data.img){
+      var bgEl=card.querySelector('.hl-bg');
+      if(bgEl){var bgs=bgEl.style.backgroundImage;if(bgs)data.img=bgs.replace(/^url\(['"]?/,'').replace(/['"]?\)$/,'');}
+    }
+    window.openModal(data);
+  } else {
+    var pg=card.getAttribute('data-link');if(pg)window.switchPage(pg);
+  }
+});
+
+/* ── TILE EDITOR PANEL ── */
+var _hlEditTarget=null;
+window.hlEditImg=function(btn){
+  _hlEditTarget=btn.closest('.hl-card');
+  // image
+  var bg=_hlEditTarget.querySelector('.hl-bg');
+  var curImg='';
+  if(bg){var s=bg.style.backgroundImage;curImg=s.replace(/^url\(['"]?/,'').replace(/['"]?\)$/,'');}
+  document.getElementById('hlImgUrl').value=curImg;
+  hlImgPreview();
+  document.getElementById('hlUrlRow').classList.remove('open');
+  // title & caption from DOM
+  var hl=_hlEditTarget.querySelector('.hl-headline');
+  var te=_hlEditTarget.querySelector('.hl-teaser');
+  document.getElementById('hlEditTitle').value=hl?hl.textContent:'';
+  document.getElementById('hlEditCaption').value=te?te.textContent:'';
+  // button label & link from cta button
+  var cta=_hlEditTarget.querySelector('.hl-cta');
+  document.getElementById('hlEditBtnLabel').value=cta?cta.textContent:'Read more →';
+  document.getElementById('hlEditBtnLink').value='';
+  document.getElementById('hlEditNewTab').checked=true;
+  document.getElementById('hlEditAlt').value='';
+  document.getElementById('hlEditDecorative').checked=false;
+  document.getElementById('hlImgEditor').classList.add('open');
+};
+window.hlToggleUrlRow=function(){
+  document.getElementById('hlUrlRow').classList.toggle('open');
+};
+window.hlLoadFile=function(input){
+  var file=input.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var dataUrl=e.target.result;
+    document.getElementById('hlImgUrl').value=dataUrl;
+    var wrap=document.getElementById('hlPanelThumb');
+    wrap.innerHTML='<img class="hlpanel-img-thumb" src="'+dataUrl+'">';
+    // apply immediately to tile background preview
+    if(_hlEditTarget){
+      var bg=_hlEditTarget.querySelector('.hl-bg');
+      if(bg)bg.style.backgroundImage='url("'+dataUrl+'")';
+    }
+  };
+  reader.readAsDataURL(file);
+  input.value='';
+};
+window.hlImgPreview=function(){
+  var url=document.getElementById('hlImgUrl').value.trim();
+  var wrap=document.getElementById('hlPanelThumb');
+  if(url){wrap.innerHTML='<img class="hlpanel-img-thumb" src="'+url+'" onerror="this.outerHTML=\'<div class=hlpanel-img-thumb-ph>🖼</div>\'">';}
+  else{wrap.innerHTML='<div class="hlpanel-img-thumb-ph">🖼</div>';}
+};
+window.hlSaveImg=function(){
+  if(!_hlEditTarget)return;
+  // save image
+  var url=document.getElementById('hlImgUrl').value.trim();
+  var bg=_hlEditTarget.querySelector('.hl-bg');
+  if(bg)bg.style.backgroundImage=url?'url("'+url+'")':'';
+  // save title
+  var title=document.getElementById('hlEditTitle').value.trim();
+  var hl=_hlEditTarget.querySelector('.hl-headline');
+  if(hl&&title)hl.textContent=title;
+  // save caption
+  var caption=document.getElementById('hlEditCaption').value.trim();
+  var te=_hlEditTarget.querySelector('.hl-teaser');
+  if(te&&caption)te.textContent=caption;
+  // save button label & link
+  var btnLabel=document.getElementById('hlEditBtnLabel').value.trim();
+  var btnLink=document.getElementById('hlEditBtnLink').value.trim();
+  var newTab=document.getElementById('hlEditNewTab').checked;
+  var cta=_hlEditTarget.querySelector('.hl-cta');
+  if(cta){
+    if(btnLabel)cta.textContent=btnLabel;
+    if(btnLink){
+      cta.onclick=null;
+      cta.setAttribute('href',btnLink);
+      cta.setAttribute('target',newTab?'_blank':'_self');
+      cta.setAttribute('onclick','event.stopPropagation()');
+    }
+  }
+  // update data-modal img & title
+  var raw=_hlEditTarget.getAttribute('data-modal');
+  if(raw){try{var d=JSON.parse(raw);if(url)d.img=url;if(title)d.title=title;if(caption)d.excerpt=caption;_hlEditTarget.setAttribute('data-modal',JSON.stringify(d));}catch(err){}}
+  hlCloseImgEditor();
+};
+window.hlCloseImgEditor=function(){
+  document.getElementById('hlImgEditor').classList.remove('open');
+  _hlEditTarget=null;
+};
+
+/* ── HIGHLIGHTS CAROUSEL ── */
+var _hlIdx=0;
+function _hlCards(){return document.querySelectorAll('#hlTrack .hl-card');}
+function _hlVisible(){var w=document.getElementById('hlCarouselWrap');return w?Math.floor(w.offsetWidth/334):3;}
+function hlUpdateDots(){
+  var cards=_hlCards(),vis=_hlVisible(),total=Math.max(1,cards.length-vis+1);
+  var dots=document.getElementById('hlDots');if(!dots)return;
+  dots.innerHTML='';
+  for(var i=0;i<total;i++){
+    var d=document.createElement('span');d.className='hl-dot'+(i===_hlIdx?' active':'');
+    d.setAttribute('data-i',i);
+    d.onclick=(function(ii){return function(){hlGoTo(ii);};})(i);
+    dots.appendChild(d);
+  }
+  var prev=document.getElementById('hlPrev'),next=document.getElementById('hlNext');
+  if(prev)prev.disabled=_hlIdx===0;
+  if(next)next.disabled=_hlIdx>=total-1;
+}
+function hlGoTo(idx){
+  var cards=_hlCards(),vis=_hlVisible(),max=Math.max(0,cards.length-vis);
+  _hlIdx=Math.max(0,Math.min(idx,max));
+  var track=document.getElementById('hlTrack');if(!track)return;
+  var card=cards[_hlIdx];
+  if(card){track.style.transform='translateX(-'+(card.offsetLeft)+'px)';}
+  hlUpdateDots();
+}
+window.hlMove=function(dir){hlGoTo(_hlIdx+dir);};
+window.hlResize=function(btn,sz){
+  var card=btn.closest('.hl-card');if(!card)return;
+  card.classList.remove('size-s','size-m','size-l');
+  card.classList.add(sz);
+  setTimeout(function(){hlGoTo(_hlIdx);},50);
+};
+/* touch/swipe */
+(function(){
+  var sx=0;
+  document.addEventListener('touchstart',function(e){var t=e.target.closest('#hlTrack');if(t)sx=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',function(e){var t=e.target.closest('#hlTrack');if(!t)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)hlMove(dx<0?1:-1);},{passive:true});
+})();
+
 var _NAV_LABELS={home:'Home',news:'Petra News',hsse:'HSSE',industry:'Industry News',hr:'HR & Benefits',projects:'Projects',gallery:'Gallery',policies:'Policies',calendar:'Corporate Calendar',documents:'Documents'};
 window.toggleEditMode=function(){
   var panel=document.getElementById('editPanel');
   if(!panel)return;
   var visible=panel.style.display!=='none';
+  document.body.classList.toggle('edit-mode',!visible);
   if(!visible){
     var nl=window.NAV_LINKS||{};
     var keys=Object.keys(_NAV_LABELS);
@@ -1520,6 +1893,10 @@ document.addEventListener('DOMContentLoaded',function(){
       tab.classList.add('active');window._curTab=tab.dataset.tab;window.refreshCurrentTab(false);
     });
   });
+  // Init highlights carousel
+  setTimeout(function(){hlGoTo(0);},100);
+  window.addEventListener('resize',function(){hlGoTo(_hlIdx);});
+
   window.renderPetraNews();
   window.renderCal();
 
