@@ -729,12 +729,24 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
       </div>
 
       <!-- LIVE OIL & GAS NEWS -->
-      <div class="hl-section-hdr" style="margin-top:22px;">⛽ Live: Oil &amp; Gas Industry News</div>
+      <div class="hl-section-hdr" style="margin-top:22px;">⛽ Oil &amp; Gas</div>
       <div class="live-tiles-row" id="homeOgFeed">
         <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
       </div>
 
-      <!-- LIVE WORLD / MARKETS NEWS -->
+      <!-- AI NEWS -->
+      <div class="hl-section-hdr" style="margin-top:20px;">🤖 Artificial Intelligence</div>
+      <div class="live-tiles-row" id="homeAiFeed">
+        <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
+      </div>
+
+      <!-- BBC NEWS -->
+      <div class="hl-section-hdr" style="margin-top:20px;">📺 BBC News</div>
+      <div class="live-tiles-row" id="homeBbcFeed">
+        <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
+      </div>
+
+      <!-- WORLD & MARKETS -->
       <div class="hl-section-hdr" style="margin-top:20px;">🌍 World &amp; Markets</div>
       <div class="live-tiles-row" id="homeWorldFeed">
         <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
@@ -1842,7 +1854,10 @@ window.saveEditedLinks=function(){
     var inp=document.getElementById('editnl_'+k);
     if(inp)window.NAV_LINKS[k]=inp.value.trim();
   });
-  alert('Links saved! To make permanent, use the Download button on this page and re-upload to GitHub.');
+  var msg=document.createElement('div');
+  msg.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a8c55;color:#fff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.2);';
+  msg.textContent='✓ Links saved';document.body.appendChild(msg);
+  setTimeout(function(){msg.remove();},2500);
 };
 
 document.addEventListener('DOMContentLoaded',function(){
@@ -1866,25 +1881,58 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // Fetch home page live feeds
   (function(){
-    var OG_URLS=['https://oilprice.com/rss/main','https://www.rigzone.com/news/rss/'];
-    var WO_URLS=['https://feeds.bbci.co.uk/news/world/rss.xml','https://rss.nytimes.com/services/xml/rss/nyt/Business.xml'];
-    function ltile(item,bar){
-      var t=(item.title||'').replace(/</g,'&lt;');
+    var FEEDS={
+      homeOgFeed:{
+        color:'amber',
+        urls:['https://oilprice.com/rss/main','https://www.rigzone.com/news/rss/','https://www.ogj.com/rss']
+      },
+      homeAiFeed:{
+        color:'blue',
+        urls:['https://venturebeat.com/category/ai/feed/','https://techcrunch.com/category/artificial-intelligence/feed/','https://www.theverge.com/rss/ai-artificial-intelligence/index.xml','https://www.technologyreview.com/feed/']
+      },
+      homeBbcFeed:{
+        color:'red',
+        urls:['https://feeds.bbci.co.uk/news/rss.xml','https://feeds.bbci.co.uk/news/world/rss.xml','https://feeds.bbci.co.uk/news/business/rss.xml']
+      },
+      homeWorldFeed:{
+        color:'green',
+        urls:['https://rss.nytimes.com/services/xml/rss/nyt/Business.xml','https://feeds.reuters.com/reuters/businessNews','https://feeds.bbci.co.uk/news/business/rss.xml']
+      }
+    };
+    function ltile2(item,bar){
+      var t=(item.title||'No title').replace(/</g,'&lt;');
       var src=(item.source||item.author||'').replace(/</g,'&lt;');
+      var ago='';try{ago=window.timeAgo?window.timeAgo(item.pubDate):'';}catch(e){}
       var url=item.link||item.url||'#';
-      return '<div class="ltile" onclick="window.open(\''+url+'\',\'_blank\')"><div class="ltile-bar '+bar+'"></div><div class="ltile-tag">'+src+'</div><div class="ltile-title">'+t+'</div></div>';
+      return '<div class="ltile" onclick="window.open(\''+url+'\',\'_blank\')">'
+        +'<div class="ltile-bar '+bar+'"></div>'
+        +(src?'<div class="ltile-tag">'+src+'</div>':'')
+        +'<div class="ltile-title">'+t+'</div>'
+        +(ago?'<div class="ltile-src">'+ago+'</div>':'')
+        +'</div>';
     }
-    function tryFeed(urls,idx,containerId,barColor){
-      if(idx>=urls.length){document.getElementById(containerId).innerHTML='<div style="color:var(--text2);font-size:12px;padding:16px;">No feed available</div>';return;}
-      fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(urls[idx])+'&count=3')
-        .then(function(r){return r.json();}).then(function(d){
-          if(d.items&&d.items.length){
-            document.getElementById(containerId).innerHTML=d.items.slice(0,3).map(function(item){return ltile(item,barColor);}).join('');
-          } else {tryFeed(urls,idx+1,containerId,barColor);}
-        }).catch(function(){tryFeed(urls,idx+1,containerId,barColor);});
+    function tryFeed2(urls,idx,containerId,barColor){
+      var el=document.getElementById(containerId);
+      if(!el)return;
+      if(idx>=urls.length){
+        el.innerHTML='<div style="color:var(--text2);font-size:12px;padding:16px;grid-column:1/-1;">Feed unavailable</div>';
+        return;
+      }
+      fetch(_PROXY+encodeURIComponent(urls[idx])+'&count=3')
+        .then(function(r){return r.json();})
+        .then(function(d){
+          if(d.items&&d.items.length>0){
+            el.innerHTML=d.items.slice(0,3).map(function(it){return ltile2(it,barColor);}).join('');
+          } else {
+            tryFeed2(urls,idx+1,containerId,barColor);
+          }
+        })
+        .catch(function(){tryFeed2(urls,idx+1,containerId,barColor);});
     }
-    tryFeed(OG_URLS,0,'homeOgFeed','amber');
-    tryFeed(WO_URLS,0,'homeWorldFeed','blue');
+    Object.keys(FEEDS).forEach(function(id){
+      var f=FEEDS[id];
+      tryFeed2(f.urls,0,id,f.color);
+    });
   })();
 
   document.querySelectorAll('.news-tab').forEach(function(tab){
