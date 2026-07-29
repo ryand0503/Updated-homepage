@@ -32,14 +32,31 @@ window.NAV_LINKS = {
 };
 
 window.QUICK_LINKS = [
-  { icon:'🏖', label:'Submit Leave',    url:'', modal:{title:'Submit Leave via HRiQ',tag:'HR',tagClass:'blue',source:'Human Resources',date:'2025',emoji:'🏖',excerpt:'Submit leave applications via HRiQ online system.\n\nAnnual Leave: 16 days (Grade 1–4), 20 days (Grade 5+)\nMedical Leave: 14 days outpatient, 60 days hospitalisation\nEmergency Leave: 3 days\nMaternity / Paternity: 90 / 7 days\n\nSubmit at least 3 working days in advance. Set url above to link directly to HRiQ.'} },
-  { icon:'🛡', label:'Report Incident', url:'', modal:{title:'Report an Incident',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'2025',emoji:'🛡',excerpt:'Report all incidents, near-misses, and unsafe conditions immediately.\n\n24-hr HSSE Hotline: +60 3-2166 8888\n\nFor non-emergency: use form HSSE-F-001. Initial report within 1 hour. Full investigation report within 5 working days. Set url above to link to the online form.'} },
-  { icon:'💻', label:'SAP Portal',      url:'', modal:{title:'SAP S/4HANA Portal',tag:'IT',tagClass:'blue',source:'IT Division',date:'Go-Live: 1 Oct 2025',emoji:'💻',excerpt:'SAP S/4HANA goes live on 1 October 2025.\n\nAll employees must complete mandatory e-learning by 31 August 2025.\nContact IT Helpdesk: Ext. 8888\nEmail: ithelpdesk@petraenergy.com.my\n\nSet url above to link directly to the SAP portal.'} },
-  { icon:'✈️', label:'Travel Claim',    url:'', modal:{title:'Travel & Expense Claim (FIN-F-003)',tag:'Finance',tagClass:'amber',source:'Finance Division',date:'2025',emoji:'✈️',excerpt:'Submit T&E claims within 14 days of return.\n\nAttach all original receipts. Claims above RM 5,000 require Division Head approval.\nPer diem: Domestic RM 120/day.\nSubmit via SAP Concur.\n\nSet url above to link directly to the claim form.'} },
-  { icon:'🖥️', label:'IT Helpdesk',     url:'', modal:{title:'IT Helpdesk',tag:'IT',tagClass:'blue',source:'IT Division',date:'2025',emoji:'🖥️',excerpt:'IT Helpdesk\nPhone: Ext. 8888\nEmail: ithelpdesk@petraenergy.com.my\nHours: Mon–Fri 7:30 AM – 7:00 PM\n\nFor urgent system outages outside hours:\n+60 12-888 7777\n\nSAP extended support hours: 1–7 October 2025.'} },
-  { icon:'🏥', label:'Medical Claim',   url:'', modal:{title:'Medical Claim (HR-F-005)',tag:'HR',tagClass:'blue',source:'Human Resources',date:'2025',emoji:'🏥',excerpt:'For non-panel clinic visits, submit HR-F-005 within 30 days of treatment.\n\nAnnual limit: RM 3,000 outpatient\nPanel clinic visits: direct-billing, no form needed\nDental: RM 500/year\nOptical: RM 300/year\n\nSet url above to link to the HR portal.'} },
-  { icon:'📁', label:'Forms & Docs',    url:'', page:'documents' },
-  { icon:'🚨', label:'HSSE Hotline',    url:'tel:+60321668888', modal:null }
+  // ── SET url:'' TO YOUR SHAREPOINT LINK, OR LEAVE '' TO SHOW THE INFO POPUP ──
+  { icon:'🏠', label:'i-PETRA',            url:'' /* e.g. 'https://petraenergy.sharepoint.com/sites/iPetra' */,
+    modal:{title:'i-PETRA HR System',tag:'HR',tagClass:'blue',source:'Human Resources',date:'2026',emoji:'🏠',
+      excerpt:'Access i-PETRA to submit leave, view payslip, manage your personal details and HR transactions.\n\nLeave enquiries: hr@penergy.com.my\nHR Helpdesk: Ext. 2200'} },
+  { icon:'📋', label:'MIA i-PETRA',        url:'' /* 'https://mia.ipetra.com.my' */,
+    modal:{title:'MIA i-PETRA',tag:'HR',tagClass:'blue',source:'Human Resources',date:'2026',emoji:'📋',
+      excerpt:'MIA i-PETRA — Mobile access to HR self-service including leave applications, claims, and approvals. Available on iOS and Android.'} },
+  { icon:'💻', label:'SAP S/4 HANA',      url:'' /* 'https://sap.penergy.com.my' */,
+    modal:{title:'SAP S/4 HANA',tag:'IT',tagClass:'blue',source:'IT Division',date:'2026',emoji:'💻',
+      excerpt:'SAP S/4 HANA — Enterprise system for Finance, Procurement, HR, and Project Systems.\n\nIT Helpdesk: ithelpdesk@penergy.com.my\nHelpdesk Ext: 2500'} },
+  { icon:'📦', label:'eProcurement',       url:'' /* 'https://eprocurement.penergy.com.my' */,
+    modal:{title:'eProcurement System',tag:'Procurement',tagClass:'amber',source:'Supply Chain',date:'2026',emoji:'📦',
+      excerpt:'Raise and approve Purchase Requisitions, track Purchase Orders, and manage vendor submissions through the eProcurement portal.\n\nSCM helpdesk: scm@penergy.com.my'} },
+  { icon:'🔒', label:'PRS System',         url:'' /* 'https://prs.penergy.com.my' */,
+    modal:{title:'PRS System',tag:'Operations',tagClass:'',source:'Operations Division',date:'2026',emoji:'🔒',
+      excerpt:'The Performance Reporting System (PRS) is used for KPI tracking, project reporting, and performance dashboards across all divisions.'} },
+  { icon:'🛡', label:'S.A.F.E System',     url:'' /* 'https://safe.penergy.com.my' */,
+    modal:{title:'S.A.F.E System — Safety Observation & Reporting',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'2026',emoji:'🛡',
+      excerpt:'The S.A.F.E (Safety Awareness For Everyone) System is used to report safety observations, near-misses, and unsafe conditions.\n\n24-hr HSSE Hotline: +60 3-2166 8888\n\nReport within 1 hour. Full investigation within 5 working days.'} },
+  { icon:'🌱', label:'Generative Culture', url:'' /* 'https://petraenergy.sharepoint.com/sites/GenCulture' */,
+    modal:{title:'Generative Culture — GCB Beyond HSE',tag:'Culture',tagClass:'green',source:'Corporate Division',date:'2026',emoji:'🌱',
+      excerpt:'The Generative Culture Beyond HSE (GCB) initiative drives proactive safety leadership, open reporting, and a learning culture across PETRA Energy.\n\nKey programme: UCUA & S.A.F.E. System Awareness\nContact: culture@penergy.com.my'} },
+  { icon:'🚨', label:'Whistleblower',      url:'' /* 'https://whistleblower.penergy.com.my' */,
+    modal:{title:'Whistleblower Channel',tag:'Compliance',tagClass:'',source:'Legal & Compliance',date:'2026',emoji:'🚨',
+      excerpt:'PETRA Energy provides a confidential whistleblower channel for reporting unethical conduct, fraud, or policy violations.\n\nAll reports are treated strictly confidentially.\nEmail: whistleblower@penergy.com.my\nHotline: 1-800-88-PETRA'} }
 ];
 
 /* =====================================================================
@@ -50,25 +67,25 @@ window.QUICK_LINKS = [
    ===================================================================== */
 window.ANNOUNCEMENTS = [
   { dot:'red', urgent:true, tag:'URGENT', tagStyle:'background:rgba(192,17,31,.12);color:var(--red);',
-    text:'SAP e-learning mandatory by <strong>31 August</strong> — non-completion delays system access from 1 Oct',
-    date:'IT Division',
-    modal:{title:'SAP S4HANA Mandatory E-Learning — Deadline 31 August',tag:'IT',tagClass:'blue',source:'IT Division',date:'Deadline: 31 Aug 2025',img:'',emoji:'⚠️',
-      excerpt:'All employees must complete the mandatory SAP S4HANA e-learning modules before 31 August 2025. Non-completion will result in delayed system access from 1 October. Access via the Petra Learning Centre portal. IT Helpdesk: ext. 8888.'} },
-  { dot:'green', tag:'HOLIDAY', tagStyle:'background:rgba(26,140,85,.12);color:#1a8c55;',
-    text:'Hari Raya Haji — Office closed <strong>31 July</strong>. Next working day: 1 August 2025',
-    date:'31 Jul 2025',
-    modal:{title:'Hari Raya Haji — Office Closure 31 July',tag:'Holiday',tagClass:'green',source:'HR Division',date:'31 Jul 2025',img:'',emoji:'🌙',
-      excerpt:'Hari Raya Haji falls on 31 July 2025. All offices will be closed. Offshore operations continue on normal rotation. Emergency contacts remain active. Next working day: 1 August 2025.'} },
-  { dot:'blue', tag:'NEW', tagStyle:'background:rgba(26,95,180,.12);color:#1a5fb4;',
-    text:'HR Policy Manual Rev. 7 in effect — includes new FWA policy. Acknowledge receipt by <strong>15 August</strong>',
-    date:'Human Resources',
-    modal:{title:'HR Policy Manual Rev. 7 — Now in Effect',tag:'HR',tagClass:'blue',source:'Human Resources',date:'Jul 2025',img:'',emoji:'💼',
-      excerpt:'HR Policy Manual Rev. 7 is now in effect. Key changes: new Flexible Work Arrangement (FWA) policy for Grade 3+ non-ops staff, updated parental leave provisions (90 days maternity, 7 days paternity), and revised performance bonus structure. Acknowledge receipt by 15 August via HRiQ.'} },
+    text:'GRN / SA Framework enhancement effective immediately — all employees must comply with updated workflow',
+    date:'Supply Chain',
+    modal:{title:'Strengthening the GRN / SA Framework — Effective Immediately',tag:'Procurement',tagClass:'amber',source:'Supply Chain Management',date:'23 July 2026',img:'',emoji:'📋',
+      excerpt:'PETRA Energy is enhancing the Goods Received Note (GRN) / Service Acceptance (SA) workflow as part of the Group Procurement Management (GPM) Manual.\n\nKey Controls:\n✓ Verify goods/services before acceptance\n✓ Perform GRN/SA immediately upon receipt or completion of services\n✓ No GRN / SA = No Payment\n✓ Ensure all supporting documents and approvals are complete\n✓ SCM will conduct monthly GRN & Open PO monitoring\n\nBusiness Owners remain accountable. Briefing sessions will be arranged.\n\nFor enquiries: Zuraini Binti Idris — zuraini.idris@penergy.com.my'} },
+  { dot:'green', tag:'MILESTONE', tagStyle:'background:rgba(26,140,85,.12);color:#1a8c55;',
+    text:'PETROS &amp; PETRA Energy achieve <strong>First Oil at Adong Kechil West (AKW) 2026</strong> — Watch the milestone video',
+    date:'Corporate Comms',
+    modal:{title:'First Oil Achieved — Adong Kechil West (AKW) 2026',tag:'Milestone',tagClass:'green',source:'Corporate Affairs',date:'July 2026',img:'',emoji:'🛢',
+      excerpt:'PETROS and PETRA Energy have successfully achieved First Oil at the Adong Kechil West (AKW) onshore oil well in Sarawak. This marks a significant milestone in PETRA Energy\'s upstream expansion and Malaysia\'s domestic oil production.\n\nProduction is being progressively optimised. The offtake tanker Sloman Thetis successfully came alongside Duta Pacific on 1 July 2026.\n\nWatch the milestone video on the company intranet.'} },
+  { dot:'blue', tag:'UPCOMING', tagStyle:'background:rgba(26,95,180,.12);color:#1a5fb4;',
+    text:'MUPEX 2026 — <strong>13 August</strong> &nbsp;·&nbsp; Oil &amp; Gas Asia (OGA) — <strong>2–4 September</strong> &nbsp;·&nbsp; MOGSC — <strong>11 August</strong>',
+    date:'Corporate Affairs',
+    modal:{title:'Upcoming Industry Events — Q3 2026',tag:'Events',tagClass:'blue',source:'Corporate Affairs',date:'Q3 2026',img:'',emoji:'🏛️',
+      excerpt:'Key industry events for Q3 2026:\n\n• Malaysian Oil, Gas & Energy Services Council (MOGSC) 2026 — 11 Aug, 10:30 AM\n• MUPEX 2026 — 13 Aug, 8:00 AM\n• Oil & Gas Asia (OGA) — 2–4 September (All day)\n• Premier of Sarawak scheduled to visit AKW Site — 16 September\n\nFor participation enquiries contact Corporate Affairs: corporate@penergy.com.my'} },
   { dot:'amber', tag:'ACTION', tagStyle:'background:rgba(196,106,0,.12);color:#c46a00;',
-    text:'Petra Excellence Awards — nominations close <strong>25 July</strong>. 7 categories incl. new Sustainability Champion',
-    date:'Corp. Comms',
-    modal:{title:'Nominations Open — Petra Excellence Awards 2025',tag:'Corporate',tagClass:'amber',source:'Corporate Comms',date:'Deadline: 25 Jul 2025',img:'',emoji:'🏆',
-      excerpt:'Nominations for the Petra Excellence Awards 2025 are now open across 7 categories including the new Sustainability Champion award. Deadline: 25 July 2025. Submit to corporate.comms@petraenergy.com.my.'} }
+    text:'Generative Culture — complete the <strong>UCUA &amp; S.A.F.E System Awareness</strong> module. "I Empower Through Capability"',
+    date:'HSSE Division',
+    modal:{title:'UCUA & S.A.F.E System Awareness — Generative Culture',tag:'Culture',tagClass:'',source:'HSSE Division',date:'2026',img:'',emoji:'🌱',
+      excerpt:'A briefing session was conducted for employees unfamiliar with the UCUA and S.A.F.E. System to improve their understanding of proactive hazard reporting and the correct reporting process.\n\nThe session covered: purpose of the system, reportable observations (unsafe acts, unsafe conditions, near misses), and how to use the UCOA and S.A.F.E. System effectively.\n\nStrengthening reporting capability promotes timely hazard identification, encourages ownership, and supports continuous safety improvement.\n\nAccess via: S.A.F.E System quick link above.'} }
 ];
 
 /* =====================================================================
@@ -80,76 +97,67 @@ window.ANNOUNCEMENTS = [
            OR ctaUrl (external URL), modal (full detail popup)
    ===================================================================== */
 window.COMPANY_HIGHLIGHTS = [
+  // ── CHANGE img: TO YOUR OWN PHOTO URL OR UPLOAD IN EDIT MODE ──
   { size:'size-l',
     img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
-    bg:'linear-gradient(135deg,#1a0a0a,#5c1020)',
-    sector:'📰 Petra News', badge:'Breaking', badgeClass:'',
-    headline:'Petra Secures RM 420M Kasawari HUC Contract',
-    teaser:'Awarded by PETRONAS Carigali — 36-month HUC scope, Kasawari-A &amp; B platforms, South China Sea.',
-    date:'4 days ago', cta:'Read more →', ctaPage:'news',
-    modal:{title:'Petra Energy Secures RM 420M HUC Contract for Kasawari Gas Development',tag:'Breaking',tagClass:'',source:'Corporate Affairs',date:'4 days ago',
-      img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',emoji:'📰',
-      excerpt:'Petra Energy Berhad has been awarded the Hook-Up and Commissioning scope by PETRONAS Carigali for the Kasawari Gas Development. The contract spans 36 months and covers all HUC activities on Kasawari-A and Kasawari-B platforms in the South China Sea.'} },
+    bg:'linear-gradient(135deg,#8B0000,#C0111F)',
+    sector:'🛢 Milestone', badge:'First Oil', badgeClass:'green',
+    headline:'PETROS &amp; PETRA Energy — First Oil at Adong Kechil West (AKW) 2026',
+    teaser:'A landmark achievement for PETRA Energy and Malaysia\'s onshore upstream production in Sarawak.',
+    date:'July 2026', cta:'Watch here →', ctaUrl:'' /* paste video/article URL here */,
+    modal:{title:'First Oil Achieved — Adong Kechil West (AKW) 2026',tag:'Milestone',tagClass:'green',source:'Corporate Affairs',date:'July 2026',
+      img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',emoji:'🛢',
+      excerpt:'PETROS and PETRA Energy have successfully achieved First Oil at the Adong Kechil West (AKW) onshore oil well in Sarawak. The offtake tanker Sloman Thetis successfully came alongside Duta Pacific at noon on 1 July 2026 on its third attempt.\n\nProduction rate is being progressively optimised. This marks a significant milestone in PETRA Energy\'s upstream expansion and Malaysia\'s domestic oil production capability.'} },
   { size:'size-m',
     img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80',
     bg:'linear-gradient(135deg,#061a0e,#1a4a28)',
-    sector:'🛡 HSSE', badge:'On Track', badgeClass:'green',
-    headline:'847 LTI-Free Days — Strongest Safety Streak Ever',
-    teaser:'96% training compliance. Near-miss reports down 20% vs May. All audit scores above 88%.',
-    date:'July 2025', cta:'Read more →', ctaPage:'hsse',
-    modal:{title:'847 LTI-Free Days — Strongest Safety Streak Ever',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'July 2025',
-      img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80',emoji:'🛡',
-      excerpt:'847 consecutive Lost Time Incident-free days as of July 2025. 96% training compliance across all sites. Near-miss reports down 20% vs May. All site audit scores above 88%. HSSE team on track for the annual Zero Harm target.'} },
+    sector:'🌱 Generative Culture', badge:'GCB Beyond HSE', badgeClass:'green',
+    headline:'UCUA &amp; S.A.F.E System Awareness — "I Empower Through Capability"',
+    teaser:'Empowering employees through proactive hazard reporting, safety ownership and continuous improvement.',
+    date:'2026', cta:'Learn more →', ctaPage:'hsse',
+    modal:{title:'UCUA & S.A.F.E System Awareness — Generative Culture',tag:'Culture',tagClass:'green',source:'HSSE Division',date:'2026',
+      img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80',emoji:'🌱',
+      excerpt:'A briefing session was conducted for employees to improve their understanding of the UCUA and S.A.F.E. System and the correct reporting process.\n\nKey objectives:\n• Understand reportable observations (unsafe acts, conditions, near misses)\n• Build proactive hazard identification skills\n• Promote ownership and timely reporting\n\nThis supports Dato\' Anthony\'s vision of a Generative Culture Beyond HSE across PETRA Energy.'} },
   { size:'size-m',
-    img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80',
-    bg:'linear-gradient(135deg,#060e1a,#1a3060)',
-    sector:'👥 HR &amp; Benefits', badge:'New', badgeClass:'blue',
-    headline:'Flexible Work Arrangement — Applications Open',
-    teaser:'Grade 3+ non-ops: up to 2 WFH days/week. Core hours 9am–4pm. Effective 1 August 2025.',
-    date:'Effective 1 Aug', cta:'Read more →', ctaPage:'hr',
-    modal:{title:'Flexible Work Arrangement — Applications Now Open',tag:'HR',tagClass:'blue',source:'Human Resources',date:'Effective Aug 2025',
-      img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80',emoji:'🏠',
-      excerpt:'Effective 1 August 2025, eligible employees (Grade 3 and above, non-operations roles) may apply for up to 2 days work-from-home per week. Core hours: 9am-4pm. Full policy in HR Policy Manual Rev. 7.'} },
+    img:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&q=80',
+    bg:'linear-gradient(135deg,#0a1525,#1a3a6c)',
+    sector:'🏗 Operations', badge:'Live', badgeClass:'', badgeStyle:'background:#c0111f;',
+    headline:'AKW Production Rate Progressively Optimised',
+    teaser:'PETRA Energy says production rate at Adong Kechil West onshore oil well to be progressively improved.',
+    date:'July 2026', cta:'Read more →', ctaPage:'news',
+    modal:{title:'AKW Production Rate Progressively Optimised',tag:'Operations',tagClass:'',source:'Operations Division',date:'July 2026',
+      img:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700&q=80',emoji:'⚙️',
+      excerpt:'PETRA Energy has confirmed that the production rate at the Adong Kechil West (AKW) onshore oil well in Sarawak will be progressively optimised following the successful First Oil achievement.\n\nThe Sloman Thetis offtake tanker successfully completed cargo transfer from Duta Pacific on 1 July 2026, marking the commencement of commercial production.'} },
   { size:'size-m',
-    img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80',
-    bg:'linear-gradient(135deg,#100620,#3a1a6c)',
-    sector:'🏗 Projects', badge:'23 Active', badgeClass:'', badgeStyle:'background:#7c3aed;',
-    headline:'Kasawari HUC Enters Mobilisation Phase',
-    teaser:'RM 420M contract underway. Cendor Phase 3: 62% complete. SAP go-live: 1 Oct 2025.',
-    date:'July 2025', cta:'Read more →', ctaPage:'projects',
-    modal:{title:'Kasawari HUC Enters Mobilisation Phase',tag:'Projects',tagClass:'',source:'Projects Division',date:'July 2025',
-      img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80',emoji:'🏗',
-      excerpt:'The RM 420M Kasawari HUC contract has entered the mobilisation phase. Cendor Phase 3 is 62% complete. SAP go-live remains on track for 1 October 2025. 23 active projects across Malaysia and Brunei.'} },
+    img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80',
+    bg:'linear-gradient(135deg,#1a1200,#4a3000)',
+    sector:'📋 Procurement', badge:'Action Required', badgeClass:'amber',
+    headline:'GRN / SA Framework — Strengthened Effective Immediately',
+    teaser:'No GRN / SA = No Payment. All business owners accountable for timely completion.',
+    date:'23 Jul 2026', cta:'Read more →', ctaPage:'documents',
+    modal:{title:'Strengthening the GRN / SA Framework',tag:'Procurement',tagClass:'amber',source:'Supply Chain Management',date:'23 July 2026',
+      img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80',emoji:'📋',
+      excerpt:'PETRA Energy is enhancing the GRN/SA workflow as part of the GPM Manual.\n\nKey Controls:\n✓ Verify goods/services before acceptance\n✓ Perform GRN/SA immediately upon receipt\n✓ No GRN/SA = No Payment\n✓ Ensure all supporting documents are complete\n✓ SCM will conduct monthly monitoring\n\nFor enquiries: zuraini.idris@penergy.com.my'} },
   { size:'size-m',
-    img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80',
-    bg:'linear-gradient(135deg,#1a0600,#6a2000)',
-    sector:'📅 Calendar', badge:'This Week', badgeClass:'',
-    headline:'Annual Fire Drill — 18 July 10AM, All Buildings',
-    teaser:'Mandatory participation. KL HQ 10:00 AM. Next: Hari Raya Haji 31 July (office closed).',
-    date:'18 Jul 2025', cta:'Full calendar →', ctaPage:'calendar',
-    modal:{title:'Annual Fire Drill 2025 — All Offices 18 July',tag:'Calendar',tagClass:'',source:'HSSE Division',date:'18 Jul 2025',
-      img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80',emoji:'🔥',
-      excerpt:'Annual fire drill across all Petra Energy offices on 18 July 2025. KL HQ evacuation: 10:00 AM sharp. All employees must participate and proceed to designated assembly points. Hari Raya Haji office closure 31 July.'} },
+    img:'https://images.unsplash.com/photo-1511578314322-379afb476865?w=700&q=80',
+    bg:'linear-gradient(135deg,#100520,#3a1860)',
+    sector:'🏛️ Industry Events', badge:'Q3 2026', badgeClass:'blue',
+    headline:'MOGSC, MUPEX &amp; OGA 2026 — PETRA Energy Participating',
+    teaser:'Malaysian Oil, Gas &amp; Energy Services Council · MUPEX · Oil &amp; Gas Asia — Aug–Sep 2026.',
+    date:'Aug–Sep 2026', cta:'Full calendar →', ctaPage:'calendar',
+    modal:{title:'Industry Events — Q3 2026',tag:'Events',tagClass:'blue',source:'Corporate Affairs',date:'Q3 2026',
+      img:'https://images.unsplash.com/photo-1511578314322-379afb476865?w=700&q=80',emoji:'🏛️',
+      excerpt:'PETRA Energy will be participating in major industry events in Q3 2026:\n\n• MOGSC 2026 — 11 Aug, 10:30 AM\n• MUPEX 2026 — 13 Aug, 8:00 AM\n• Oil & Gas Asia (OGA) — 2–4 Sep\n• Premier of Sarawak Visit to AKW Site — 16 Sep\n\nFor delegation and participation enquiries: corporate@penergy.com.my'} },
   { size:'size-m',
     img:'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80',
     bg:'linear-gradient(135deg,#100520,#3a1860)',
-    sector:'📸 Gallery', badge:'', badgeClass:'',
-    headline:'Q2 Town Hall, Cendor Team &amp; Safety Awards Night',
-    teaser:'Latest photos from KL HQ, Cendor Offshore, BOSIET Batch 12 &amp; more.',
-    date:'Jun–Jul 2025', cta:'View gallery →', ctaPage:'gallery',
-    modal:{title:'Gallery: Q2 Town Hall, Cendor Team & Safety Awards Night',tag:'Gallery',tagClass:'',source:'Corporate Comms',date:'Jun–Jul 2025',
+    sector:'📸 Gallery', badge:'New Photos', badgeClass:'',
+    headline:'AKW First Oil, Leadership Team &amp; HSSE Day 2026',
+    teaser:'Latest photos from AKW milestone, leadership visits, and HSSE Day 2026 across all sites.',
+    date:'Jul 2026', cta:'View gallery →', ctaPage:'gallery',
+    modal:{title:'Gallery — AKW First Oil & HSSE Day 2026',tag:'Gallery',tagClass:'',source:'Corporate Comms',date:'July 2026',
       img:'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80',emoji:'📸',
-      excerpt:'Latest photos from Q2 Town Hall at KL HQ, Cendor Offshore team, BOSIET Training Batch 12, and the Safety Awards Night. View the full gallery for all event photos.'} },
-  { size:'size-m',
-    img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80',
-    bg:'linear-gradient(135deg,#0a1200,#2a4000)',
-    sector:'📋 Policies', badge:'Updated', badgeClass:'amber',
-    headline:'HSSE Policy Manual Rev. 5 — Now Published',
-    teaser:'Contractor safety management, life-saving rules &amp; incident reporting all updated for 2025.',
-    date:'Jun 2025', cta:'Read more →', ctaPage:'policies',
-    modal:{title:'HSSE Policy Manual Rev. 5 — Now Published',tag:'Policies',tagClass:'',source:'HSSE & Compliance',date:'Jun 2025',
-      img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80',emoji:'📋',
-      excerpt:'HSSE Policy Manual Rev. 5 is now published. Key updates: contractor safety management, updated life-saving rules, new incident reporting flow, and 2025 audit checklist.'} }
+      excerpt:'Latest photos from PETRA Energy:\n\n• AKW First Oil celebration — Sarawak, July 2026\n• Leadership Team Site Visit — AKW, Sarawak\n• HSSE Day 2026 — All Sites\n• Sloman Thetis Offtake Operation — 1 July 2026\n\nView the full gallery on the intranet.'} }
 ];
 </script>
 <style>
@@ -751,6 +759,7 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
         <div style="display:flex;gap:4px;border-bottom:none;">
           <div class="news-tab active" data-tab="petra">📰 Petra News</div>
           <div class="news-tab" data-tab="og">⛽ Oil &amp; Gas</div>
+          <div class="news-tab" data-tab="tech">💻 Tech</div>
           <div class="news-tab" data-tab="world">🌍 World News</div>
         </div>
         <div style="display:flex;align-items:center;gap:10px;padding-bottom:4px;flex-shrink:0;">
@@ -948,23 +957,23 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
     <div class="sec" id="sec-calendar" data-section="calendar" style="display:none">
       <div class="sec-hdr"><span class="sec-title">📅 Corporate Calendar</span></div>
       <div class="pol-grid">
-        <div class="pol-tile" onclick="openModal({title:'Q3 2025 Business Review',tag:'Corporate',tagClass:'',source:'Strategy Division',date:'15 Jul 2025',img:'',emoji:'📊',excerpt:'The Q3 2025 Business Review will be held on 15 July at Level 28, KL HQ. All Division Heads and Department Managers are required to attend. Each division to submit Q3 performance decks by 13 July (COB). Full-day session; business attire required.'})">
-          <div class="pol-icon">📊</div><div><div class="pol-name">Q3 Business Review</div><div class="pol-ver">15 Jul 2025 · HQ Level 28</div></div>
+        <div class="pol-tile" onclick="openModal({title:'MOGSC 2026',tag:'Industry',tagClass:'amber',source:'Corporate Affairs',date:'11 Aug 2026',img:'',emoji:'🏛️',excerpt:'Malaysian Oil, Gas &amp; Energy Services Council (MOGSC) 2026.\n\nDate: 11 August 2026, 10:30 AM\n\nPETRA Energy delegation will be attending. For participation or delegation enquiries contact Corporate Affairs: corporate@penergy.com.my'})">
+          <div class="pol-icon">🏛️</div><div><div class="pol-name">MOGSC 2026</div><div class="pol-ver">11 Aug 2026 · 10:30 AM</div></div>
         </div>
-        <div class="pol-tile" onclick="openModal({title:'Annual Fire Drill 2025',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'18 Jul 2025',img:'',emoji:'🔥',excerpt:'The annual fire drill will be conducted simultaneously across all Petra Energy offices on 18 July 2025. Evacuation at KL HQ: 10:00 AM sharp. Muster points as per the Emergency Response Plan. All employees must participate. Re-entry only upon All Clear from the Emergency Response Team.'})">
-          <div class="pol-icon">🔥</div><div><div class="pol-name">Annual Fire Drill</div><div class="pol-ver">18 Jul 2025 · All Buildings</div></div>
+        <div class="pol-tile" onclick="openModal({title:'MUPEX 2026',tag:'Industry',tagClass:'amber',source:'Corporate Affairs',date:'13 Aug 2026',img:'',emoji:'🏭',excerpt:'MUPEX 2026 — Malaysia Upstream Petroleum Exhibition &amp; Conference.\n\nDate: 13 August 2026, 8:00 AM\n\nPETRA Energy will be exhibiting at MUPEX 2026. For booth assignments and participation details contact Corporate Affairs: corporate@penergy.com.my'})">
+          <div class="pol-icon">🏭</div><div><div class="pol-name">MUPEX 2026</div><div class="pol-ver">13 Aug 2026 · 8:00 AM</div></div>
         </div>
-        <div class="pol-tile" onclick="openModal({title:'Leadership in Energy Forum 2025',tag:'Industry',tagClass:'amber',source:'Corporate Affairs',date:'22 Jul 2025',img:'',emoji:'🏛️',excerpt:'Petra Energy is a Gold Sponsor of the Leadership in Energy Forum 2025 at KLCC Convention Centre on 22 July. Our CEO will deliver a keynote on Malaysia\'s offshore future. Employees may request tickets through Corporate Affairs.'})">
-          <div class="pol-icon">🏛️</div><div><div class="pol-name">Leadership in Energy Forum</div><div class="pol-ver">22 Jul 2025 · KLCC</div></div>
+        <div class="pol-tile" onclick="openModal({title:'Oil &amp; Gas Asia (OGA) 2026',tag:'Industry',tagClass:'',source:'Corporate Affairs',date:'2–4 Sep 2026',img:'',emoji:'⚙️',excerpt:'Oil &amp; Gas Asia (OGA) 2026 — KLCC, Kuala Lumpur.\n\nDates: 2–4 September 2026 (All day)\n\nPETRA Energy will be participating as an exhibitor. OGA is Malaysia\'s largest oil and gas exhibition. Contact Corporate Affairs for booth details and delegate passes: corporate@penergy.com.my'})">
+          <div class="pol-icon">⚙️</div><div><div class="pol-name">Oil &amp; Gas Asia (OGA) 2026</div><div class="pol-ver">2–4 Sep 2026 · KLCC, KL</div></div>
         </div>
-        <div class="pol-tile" onclick="openModal({title:'Hari Raya Haji — Public Holiday',tag:'Holiday',tagClass:'green',source:'HR Division',date:'31 Jul 2025',img:'',emoji:'🌙',excerpt:'Hari Raya Haji falls on 31 July 2025. All offices will be closed. Offshore operations to continue on normal rotation. Emergency contacts remain active. Next working day: 1 August 2025.'})">
-          <div class="pol-icon">🌙</div><div><div class="pol-name">Hari Raya Haji — Public Holiday</div><div class="pol-ver">31 Jul 2025 · Office Closed</div></div>
+        <div class="pol-tile" onclick="openModal({title:'Premier of Sarawak — AKW Site Visit',tag:'VIP Visit',tagClass:'green',source:'Corporate Affairs',date:'16 Sep 2026',img:'',emoji:'🌟',excerpt:'The Premier of Sarawak is scheduled to visit the Adong Kechil West (AKW) production site on 16 September 2026.\n\nThis high-profile visit recognises AKW First Oil as a milestone for Sarawak\'s onshore upstream production.\n\nAll site personnel to be briefed on visit protocols. Formal attire required for the reception.'})">
+          <div class="pol-icon">🌟</div><div><div class="pol-name">Premier of Sarawak — AKW Visit</div><div class="pol-ver">16 Sep 2026 · AKW Site, Sarawak</div></div>
         </div>
-        <div class="pol-tile" onclick="openModal({title:'SAP S/4HANA Go-Live',tag:'IT',tagClass:'blue',source:'IT Division',date:'1 Oct 2025',img:'',emoji:'💻',excerpt:'SAP S/4HANA goes live on 1 October 2025. All employees must complete mandatory e-learning modules by 31 August. System downtime: 28-30 September (legacy system cutover). IT helpdesk will be on extended support hours from 1–7 October.'})">
-          <div class="pol-icon">💻</div><div><div class="pol-name">SAP S/4HANA Go-Live</div><div class="pol-ver">1 Oct 2025 · Company-wide</div></div>
+        <div class="pol-tile" onclick="openModal({title:'GRN / SA Framework Enhancement — Effective Immediately',tag:'Procurement',tagClass:'red',source:'Supply Chain Management',date:'23 Jul 2026',img:'',emoji:'📋',excerpt:'PETRA Energy has strengthened the GRN/SA workflow as part of the GPM Manual, effective immediately.\n\nKey Controls:\n✓ Verify goods/services upon receipt before GRN/SA\n✓ Perform GRN/SA immediately upon receipt\n✓ No GRN/SA = No Payment\n✓ Ensure supporting documents are complete\n✓ SCM monthly monitoring in place\n\nFor enquiries: zuraini.idris@penergy.com.my'})">
+          <div class="pol-icon">📋</div><div><div class="pol-name">GRN / SA Framework Enhancement</div><div class="pol-ver">Effective 23 Jul 2026 · Action Required</div></div>
         </div>
-        <div class="pol-tile" onclick="openModal({title:'Petra Excellence Awards 2025',tag:'Corporate',tagClass:'amber',source:'Corporate Comms',date:'Nov 2025',img:'',emoji:'🏆',excerpt:'The Petra Excellence Awards 2025 ceremony will be held in November 2025. Nominations are open across 7 categories including the new Sustainability Champion award. Nomination deadline: 25 July 2025. Submit nominations to corporate.comms@petraenergy.com.my.'})">
-          <div class="pol-icon">🏆</div><div><div class="pol-name">Petra Excellence Awards 2025</div><div class="pol-ver">November 2025 · Nominations Open</div></div>
+        <div class="pol-tile" onclick="openModal({title:'AKW First Oil — Milestone Celebration',tag:'Milestone',tagClass:'green',source:'Corporate Comms',date:'Jul 2026',img:'',emoji:'🛢',excerpt:'PETROS and PETRA Energy achieved First Oil at Adong Kechil West (AKW) onshore oil well in Sarawak in July 2026.\n\nThe Sloman Thetis offtake tanker successfully came alongside Duta Pacific at noon on 1 July 2026 on its third attempt. Production rate will be progressively optimised.\n\nThis marks a major milestone in PETRA Energy\'s upstream expansion strategy.'})">
+          <div class="pol-icon">🛢</div><div><div class="pol-name">AKW First Oil Achieved</div><div class="pol-ver">Jul 2026 · Adong Kechil West, Sarawak</div></div>
         </div>
       </div>
     </div>
@@ -974,16 +983,36 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
   <!-- SIDEBAR -->
   <aside class="sidebar-col">
 
+    <!-- STOCK PRICE WIDGET -->
+    <div class="widget" id="stockWidget" style="margin-bottom:14px;">
+      <div class="w-hdr"><span class="w-title">📈 PENERGY — Bursa Malaysia</span><a class="w-more" href="https://www.bursamalaysia.com/trade/trading_resources/listing_directory/company-profile?stock_code=5133" target="_blank" style="font-size:11px;color:var(--red);">Bursa →</a></div>
+      <div class="w-body" style="padding:12px 14px;">
+        <div style="display:flex;align-items:flex-end;gap:10px;margin-bottom:6px;">
+          <span id="stockPrice" style="font-size:28px;font-weight:800;color:var(--text);letter-spacing:-1px;">RM 0.750</span>
+          <span id="stockChange" style="font-size:13px;font-weight:700;color:#16a34a;margin-bottom:4px;">▲ +0.005 (+0.67%)</span>
+        </div>
+        <div style="display:flex;gap:16px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:8px;margin-top:4px;">
+          <span>Code: <strong style="color:var(--text);">5133.KL</strong></span>
+          <span id="stockDate" style="margin-left:auto;">As of market close</span>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span style="font-size:10px;background:rgba(192,17,31,.08);color:var(--red);padding:3px 8px;border-radius:20px;font-weight:600;">Oil &amp; Gas Services</span>
+          <span style="font-size:10px;background:rgba(26,95,180,.08);color:#1a5fb4;padding:3px 8px;border-radius:20px;font-weight:600;">Main Market</span>
+        </div>
+        <div style="margin-top:10px;font-size:10px;color:var(--text-muted);font-style:italic;">Price is indicative. For real-time data visit Bursa Malaysia.</div>
+      </div>
+    </div>
+
     <div class="ceo-widget">
       <div class="ceo-hdr">
-        <div class="ceo-av">MT</div>
-        <div><div class="ceo-name">Mohd Taufik bin Ahmad</div><div class="ceo-role">Group Chief Executive Officer</div></div>
+        <div class="ceo-av">PE</div>
+        <div><div class="ceo-name">PETRA Energy Leadership</div><div class="ceo-role">Management Message</div></div>
       </div>
       <div class="ceo-body">
-        <p class="ceo-quote">The Kasawari award is a testament to our team's technical excellence. As we push into H2, carry that same discipline — in safety, in quality, and in how we treat each other. Every Petran matters.</p>
-        <div class="ceo-sig" style="margin-top:12px;">Mohd Taufik Ahmad</div>
-        <div class="ceo-date">July 2025 Message</div>
-        <a style="display:inline-block;margin-top:10px;font-size:12px;color:var(--red);font-weight:600;cursor:pointer;" onclick="openModal({title:'Message from the CEO — July 2025',tag:'Leadership',tagClass:'',source:'Office of the CEO',date:'July 2025',img:'',emoji:'💬',excerpt:'Dear Petrans,\n\nJuly has been a landmark month for Petra Energy. The award of the Kasawari HUC contract — one of the largest in our history — is the direct result of years of investment in people, process, and technology. I am immensely proud of every person who contributed to winning this work.\n\nAs we enter the second half of 2025, our focus must sharpen. We have ambitious targets: a revenue milestone, our HSSE streak to protect, and a transformation journey underway with SAP S/4HANA. None of these are easy, but none are beyond us.\n\nI ask each of you to carry the Kasawari spirit forward — take ownership, speak up when something is unsafe, and lift your colleagues. That is the Petra way.\n\nThank you for your trust and your hard work.\n\nYour CEO,\nMohd Taufik Ahmad'})">Read full message →</a>
+        <p class="ceo-quote">First Oil at Adong Kechil West is a proud milestone for every Petran. Let us carry this momentum forward — stay safe, stay disciplined, and keep lifting one another. Every Petran matters.</p>
+        <div class="ceo-sig" style="margin-top:12px;">PETRA Energy Management</div>
+        <div class="ceo-date">July 2026 Message</div>
+        <a style="display:inline-block;margin-top:10px;font-size:12px;color:var(--red);font-weight:600;cursor:pointer;" onclick="openModal({title:'Management Message — July 2026',tag:'Leadership',tagClass:'',source:'Office of the CEO',date:'July 2026',img:'',emoji:'💬',excerpt:'Dear Petrans,\n\nJuly 2026 will be remembered as a defining moment for PETRA Energy. Achieving First Oil at Adong Kechil West (AKW) — together with PETROS — marks a new chapter in our upstream journey and a testament to years of hard work, collaboration, and perseverance.\n\nAs we step into H2 2026, our priorities remain clear: optimise AKW production, uphold our HSSE standards, and maintain the Generative Culture we have been building together. The GRN/SA framework enhancements and the upcoming MOGSC, MUPEX, and OGA events are opportunities to demonstrate who we are as a company.\n\nCarry the AKW spirit forward. Take ownership. Speak up when something is not right. Lift your colleagues.\n\nThat is the Petra Way.\n\nThank you for your trust and dedication.\n\nPETRA Energy Management'})">Read full message →</a>
       </div>
     </div>
 
@@ -997,17 +1026,17 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
         </div>
         <div class="cal-grid" id="calGrid"></div>
         <div class="cal-events">
-          <div class="cal-ev" onclick="openModal({title:'Q3 2025 Business Review',tag:'Corporate',tagClass:'',source:'Strategy Division',date:'15 Jul 2025',img:'',emoji:'📊',excerpt:'The Q3 2025 Business Review will be held on 15 July at Level 28, KL HQ. All Division Heads and Department Managers are required to attend. Each division to submit Q3 performance decks to strategy@petraenergy.com.my by 13 July (COB). Full-day session; business attire required.'})">
-            <div class="cal-dot"></div><div><div class="cal-ev-text">Q3 Business Review — All Division Heads</div><div class="cal-ev-date">15 Jul · HQ Level 28</div></div>
+          <div class="cal-ev" onclick="openModal({title:'MOGSC 2026',tag:'Industry',tagClass:'amber',source:'Corporate Affairs',date:'11 Aug 2026',img:'',emoji:'🏛️',excerpt:'Malaysian Oil, Gas &amp; Energy Services Council (MOGSC) 2026.\n\nDate: 11 August 2026, 10:30 AM\n\nPETRA Energy delegation will be attending. For participation or delegation enquiries contact Corporate Affairs: corporate@penergy.com.my'})">
+            <div class="cal-dot a"></div><div><div class="cal-ev-text">MOGSC 2026</div><div class="cal-ev-date">11 Aug · 10:30 AM</div></div>
           </div>
-          <div class="cal-ev" onclick="openModal({title:'Annual Fire Drill 2025',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'18 Jul 2025',img:'',emoji:'🔥',excerpt:'The annual fire drill will be conducted simultaneously across all Petra Energy offices on 18 July 2025. Evacuation at KL HQ: 10:00 AM sharp. Muster points as per Emergency Response Plan. All employees must participate. Re-entry only upon All Clear from the Emergency Response Team.'})">
-            <div class="cal-dot"></div><div><div class="cal-ev-text">Annual Fire Drill — All Buildings</div><div class="cal-ev-date">18 Jul · KL, Labuan, Miri</div></div>
+          <div class="cal-ev" onclick="openModal({title:'MUPEX 2026',tag:'Industry',tagClass:'amber',source:'Corporate Affairs',date:'13 Aug 2026',img:'',emoji:'🏭',excerpt:'MUPEX 2026 — Malaysia Upstream Petroleum Exhibition &amp; Conference.\n\nDate: 13 August 2026, 8:00 AM\n\nPETRA Energy will be exhibiting at MUPEX 2026. For booth assignments and participation details contact Corporate Affairs: corporate@penergy.com.my'})">
+            <div class="cal-dot a"></div><div><div class="cal-ev-text">MUPEX 2026</div><div class="cal-ev-date">13 Aug · 8:00 AM</div></div>
           </div>
-          <div class="cal-ev" onclick="openModal({title:'Leadership in Energy Forum 2025',tag:'Industry',tagClass:'amber',source:'Corporate Affairs',date:'22 Jul 2025',img:'',emoji:'🏛️',excerpt:'Petra Energy is a Gold Sponsor of the Leadership in Energy Forum 2025, to be held at KLCC Convention Centre on 22 July. Our CEO will deliver a keynote on "The HUC Opportunity: Malaysia\'s Offshore Future." Employees interested in attending may request tickets through Corporate Affairs. Full-day programme; networking dinner to follow.'})">
-            <div class="cal-dot a"></div><div><div class="cal-ev-text">Leadership in Energy Forum 2025</div><div class="cal-ev-date">22 Jul · KLCC Convention</div></div>
+          <div class="cal-ev" onclick="openModal({title:'Oil &amp; Gas Asia (OGA) 2026',tag:'Industry',tagClass:'',source:'Corporate Affairs',date:'2–4 Sep 2026',img:'',emoji:'⚙️',excerpt:'Oil &amp; Gas Asia (OGA) 2026 — KLCC, Kuala Lumpur.\n\nDates: 2–4 September 2026 (All day)\n\nPETRA Energy will be participating as an exhibitor. OGA is Malaysia\'s largest oil and gas exhibition. Contact Corporate Affairs for booth details and delegate passes: corporate@penergy.com.my'})">
+            <div class="cal-dot"></div><div><div class="cal-ev-text">Oil &amp; Gas Asia (OGA) 2026</div><div class="cal-ev-date">2–4 Sep · KLCC, KL</div></div>
           </div>
-          <div class="cal-ev">
-            <div class="cal-dot g"></div><div><div class="cal-ev-text">Hari Raya Haji — Public Holiday</div><div class="cal-ev-date">31 Jul · Office Closed</div></div>
+          <div class="cal-ev" onclick="openModal({title:'Premier of Sarawak — AKW Site Visit',tag:'VIP Visit',tagClass:'green',source:'Corporate Affairs',date:'16 Sep 2026',img:'',emoji:'🌟',excerpt:'The Premier of Sarawak is scheduled to visit the Adong Kechil West (AKW) production site on 16 September 2026.\n\nThis high-profile visit recognises the significance of AKW First Oil as a milestone for Sarawak\'s onshore upstream production.\n\nAll site personnel to be briefed on visit protocols. Formal attire required for the reception.'})">
+            <div class="cal-dot g"></div><div><div class="cal-ev-text">Premier of Sarawak — AKW Visit</div><div class="cal-ev-date">16 Sep · AKW Site, Sarawak</div></div>
           </div>
         </div>
       </div>
@@ -1017,13 +1046,18 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
       <div class="w-hdr"><span class="w-title">Quick Links</span></div>
       <div class="w-body">
         <div class="ql-list">
-          <a class="ql-item" href="#" onclick="event.preventDefault();openModal({title:'Leave Application (HRiQ)',tag:'HR',tagClass:'blue',source:'Human Resources',date:'',img:'',emoji:'📝',excerpt:'Submit your leave online via the HRiQ system. Log in with your Petra network credentials. Go to Self Service → Leave Application. Select leave type, dates, and acting officer, then submit. Your HoD will receive an email to approve. For questions contact hr@petraenergy.com.my or ext. 2200.'})"><div class="ql-icon">📝</div><span class="ql-lbl">Leave Application (HRiQ)</span><span class="ql-arr">›</span></a>
-          <a class="ql-item" href="#" onclick="event.preventDefault();openModal({title:'Payslip & EPF/SOCSO',tag:'HR',tagClass:'blue',source:'Finance / HR',date:'',img:'',emoji:'💰',excerpt:'View and download your monthly payslip via HRiQ under Self Service → Payroll → Payslip. EPF (KWSP) contributions are at 11% employee / 13% employer. SOCSO contributions are deducted automatically. For payroll queries contact payroll@petraenergy.com.my or ext. 2210.'})"><div class="ql-icon">💰</div><span class="ql-lbl">Payslip &amp; EPF/SOCSO</span><span class="ql-arr">›</span></a>
-          <a class="ql-item" href="#" onclick="event.preventDefault();openModal({title:'HSSE Incident Report',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'',img:'',emoji:'🛡',excerpt:'All incidents, near-misses, and unsafe conditions must be reported immediately. For life-threatening emergencies call the 24-hour HSSE Hotline: +60 3-2166 8888. For non-emergency reporting use the HSSE Incident Report Form (HSSE-F-001) available from HSSE Division or the Documents page. Initial report within 1 hour; full investigation within 5 working days.'})"><div class="ql-icon">🛡</div><span class="ql-lbl">HSSE Incident Report</span><span class="ql-arr">›</span></a>
-          <a class="ql-item" href="#" onclick="event.preventDefault();openModal({title:'PR / PO Approval (SAP)',tag:'Procurement',tagClass:'amber',source:'Supply Chain',date:'',img:'',emoji:'📦',excerpt:'All purchase requisitions (PR) above RM 500 must be raised in SAP. Log in to SAP with your user ID and go to MM → Purchase Requisition → Create. PRs are routed automatically to your approver based on value thresholds. For SAP access issues contact the IT Helpdesk at ext. 2500 or helpdesk@petraenergy.com.my.'})"><div class="ql-icon">📦</div><span class="ql-lbl">PR / PO Approval (SAP)</span><span class="ql-arr">›</span></a>
-          <a class="ql-item" href="#" onclick="event.preventDefault();openModal({title:'Travel & Expense Claims',tag:'Finance',tagClass:'amber',source:'Finance Division',date:'',img:'',emoji:'✈️',excerpt:'Submit business travel and expense claims via SAP Concur within 14 days of return. Attach all original receipts. Per diem rates: Domestic RM 120/day, International varies by destination. Claims above RM 5,000 require Division Head approval. For queries contact finance@petraenergy.com.my or ext. 2300.'})"><div class="ql-icon">✈️</div><span class="ql-lbl">Travel &amp; Expense Claims</span><span class="ql-arr">›</span></a>
-          <a class="ql-item" href="#" onclick="event.preventDefault();switchPage('documents')"><div class="ql-icon">📚</div><span class="ql-lbl">Document Management</span><span class="ql-arr">›</span></a>
-          <a class="ql-item" href="#" onclick="event.preventDefault();openModal({title:'Training & Certification',tag:'HR',tagClass:'green',source:'HR Learning & Development',date:'',img:'',emoji:'🎓',excerpt:'Each employee is entitled to a minimum of 40 training hours per year. To nominate for training, complete the Training Nomination Form (HR-F-008) and obtain HoD approval — submit at least 2 weeks before the training date. For professional certification sponsorship (Grade 5+) contact learning@petraenergy.com.my or ext. 2250.'})"><div class="ql-icon">🎓</div><span class="ql-lbl">Training &amp; Certification</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'i-PETRA HR System',tag:'HR',tagClass:'blue',source:'Human Resources',date:'',img:'',emoji:'🏠',excerpt:'i-PETRA is the PETRA Energy HR self-service portal. Use it to apply for leave, view payslips, update personal particulars, submit claims, and access HR policies.\n\nLogin with your PETRA network credentials (Windows ID & password).\n\nFor access issues contact HR: hr@penergy.com.my or IT Helpdesk ext. 2500.'})}"><div class="ql-icon">🏠</div><span class="ql-lbl">i-PETRA</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'MIA i-PETRA',tag:'HR',tagClass:'blue',source:'Human Resources',date:'',img:'',emoji:'📋',excerpt:'MIA i-PETRA is the Manager & Approver interface for HR transactions. Use this portal to approve leave requests, performance forms, and other HR workflows delegated to you as a manager or HOD.\n\nLogin with your PETRA network credentials.\n\nFor access issues contact HR: hr@penergy.com.my'})}"><div class="ql-icon">📋</div><span class="ql-lbl">MIA i-PETRA</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'SAP S/4 HANA',tag:'Finance',tagClass:'amber',source:'Finance / IT',date:'',img:'',emoji:'💻',excerpt:'SAP S/4 HANA is PETRA Energy\'s enterprise resource planning system covering Finance, Procurement, Projects, and more.\n\nRaise Purchase Requisitions (PR), process GRN/SA, submit timesheets, and manage project costs through SAP.\n\nFor SAP access or issues contact IT Helpdesk: helpdesk@penergy.com.my or ext. 2500.'})}"><div class="ql-icon">💻</div><span class="ql-lbl">SAP S/4 HANA</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'eProcurement System',tag:'Procurement',tagClass:'amber',source:'Supply Chain Management',date:'',img:'',emoji:'📦',excerpt:'The eProcurement system manages the end-to-end procurement process including RFQ, tender management, vendor registration, and purchase orders.\n\nAll procurement activities above RM 500 must be initiated through the system in compliance with the GPM Manual.\n\nFor access issues contact SCM: scm@penergy.com.my'})}"><div class="ql-icon">📦</div><span class="ql-lbl">eProcurement</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'PRS System',tag:'Projects',tagClass:'',source:'Projects Division',date:'',img:'',emoji:'🔒',excerpt:'The Project Reporting System (PRS) is used to track project milestones, cost performance, schedule, and risk status across all active PETRA Energy projects.\n\nProject Managers must update PRS monthly as part of the Monthly Progress Report (MPR) cycle.\n\nFor access issues contact Projects: projects@penergy.com.my'})}"><div class="ql-icon">🔒</div><span class="ql-lbl">PRS System</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'S.A.F.E System',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'',img:'',emoji:'🛡',excerpt:'S.A.F.E (Safety Awareness For Everyone) is PETRA Energy\'s HSSE reporting and awareness platform.\n\nUse S.A.F.E to report:\n• Unsafe Acts (UA)\n• Unsafe Conditions (UC)\n• Near Misses\n• Positive observations\n\nAll employees are encouraged to report proactively. Reports are confidential and reviewed by the HSSE team.\n\nFor help: hsse@penergy.com.my'})}"><div class="ql-icon">🛡</div><span class="ql-lbl">S.A.F.E System</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'Whistleblower Channel',tag:'Compliance',tagClass:'',source:'Legal & Compliance',date:'',img:'',emoji:'🚨',excerpt:'PETRA Energy is committed to ethical conduct. Use the Whistleblower channel to report any suspected misconduct, fraud, corruption, or breach of company policy — anonymously and confidentially.\n\nAll reports are handled by the Audit Committee and investigated independently.\n\nFor concerns contact: whistleblower@penergy.com.my or the Board Audit Committee.'})}"><div class="ql-icon">🚨</div><span class="ql-lbl">Whistleblower</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'Information Security Management System (ISMS)',tag:'IT',tagClass:'blue',source:'IT / Compliance',date:'',img:'',emoji:'🔐',excerpt:'The ISMS portal provides access to PETRA Energy\'s information security policies, procedures, and awareness materials in line with ISO 27001.\n\nAll employees must comply with the Information Security Policy. Annual ISMS awareness training is mandatory.\n\nFor ISMS queries contact IT Security: itsecurity@penergy.com.my'})}"><div class="ql-icon">🔐</div><span class="ql-lbl">ISMS</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'Generative Culture',tag:'Culture',tagClass:'green',source:'HSSE Division',date:'',img:'',emoji:'🌱',excerpt:'Generative Culture Beyond HSE is PETRA Energy\'s culture transformation programme championed by leadership.\n\nIt promotes proactive safety ownership, open communication, and collective responsibility — moving beyond compliance to genuine care for people.\n\nLearn more about UCUA, S.A.F.E reporting, and culture toolkits on the HSSE page.'})}"><div class="ql-icon">🌱</div><span class="ql-lbl">Generative Culture</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();switchPage('policies')}"><div class="ql-icon">📚</div><span class="ql-lbl">Policies &amp; Procedures</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="https://www.petraenergy.com.my" target="_blank"><div class="ql-icon">🌐</div><span class="ql-lbl">PETRA Energy Website</span><span class="ql-arr">›</span></a>
+          <a class="ql-item" href="" target="_blank" onclick="if(!this.href||this.href===window.location.href){event.preventDefault();openModal({title:'IT Helpdesk',tag:'IT',tagClass:'blue',source:'IT Division',date:'',img:'',emoji:'🖥️',excerpt:'For all IT support requests including system access, hardware issues, software installation, and network connectivity.\n\nContact IT Helpdesk:\n📞 Ext. 2500\n📧 helpdesk@penergy.com.my\n\nService Hours: Mon–Fri, 8:00 AM – 6:00 PM\nEmergency after-hours support available for critical systems.'})}"><div class="ql-icon">🖥️</div><span class="ql-lbl">IT Helpdesk</span><span class="ql-arr">›</span></a>
         </div>
       </div>
     </div>
@@ -1324,6 +1358,15 @@ let refreshTimer=null;
 let countdownTimer=null;
 let secondsLeft=300;
 
+// The Register direct API — returns JSON, no proxy needed
+function theRegisterUrl(tag){
+  return 'https://api.theregister.com/api/v1/article?query=tag:' + encodeURIComponent(tag) +
+    '&orderBy=published&site_id=2&remapper=rss&limit=8&_cb=' + Date.now();
+}
+function theRegisterProxyUrl(tag){
+  return PROXY + encodeURIComponent(theRegisterUrl(tag));
+}
+
 // Multiple feeds per category — tries each until one returns images
 const FEEDS={
   petra:null,
@@ -1331,6 +1374,11 @@ const FEEDS={
     'https://oilprice.com/rss/main',
     'https://www.rigzone.com/news/rss/',
     'https://www.offshore-technology.com/feed/',
+  ],
+  tech:[
+    theRegisterUrl('artificial-intelligence'),
+    theRegisterUrl('energy'),
+    theRegisterUrl('cloud'),
   ],
   world:[
     'https://feeds.bbci.co.uk/news/world/rss.xml',
@@ -1350,6 +1398,7 @@ const PETRA_NEWS=[
 
 const TAG_CLASSES=['','amber','green','blue','grey','','amber','green'];
 const TAG_NAMES_OG=['Market','Offshore','LNG','Energy','Policy','Analysis','Technology','Upstream'];
+const TAG_NAMES_TECH=['AI','Energy Tech','Cloud','Cybersecurity','Data','Automation','Software','Hardware'];
 const TAG_NAMES_W=['World','Asia','Business','Technology','Climate','Politics','Science','Health'];
 
 function timeAgo(d){
@@ -1455,7 +1504,7 @@ async function renderFeedNews(feedKey,silent=false){
   try{
     const data=await fetchFeedWithImages(FEEDS[feedKey]);
     if(!data?.items?.length)throw new Error('no items');
-    const tags=feedKey==='og'?TAG_NAMES_OG:TAG_NAMES_W;
+    const tags=feedKey==='og'?TAG_NAMES_OG:feedKey==='tech'?TAG_NAMES_TECH:TAG_NAMES_W;
     const src=data.feed?.title||'News';
     setTimeout(()=>{
       grid.innerHTML=data.items.slice(0,6).map((item,i)=>tileHTML(item,i,tags[i%tags.length],TAG_CLASSES[i%TAG_CLASSES.length],src)).join('');
@@ -1940,14 +1989,23 @@ document.addEventListener('DOMContentLoaded',function(){
 
   // Fetch home page live feeds
   (function(){
+    // Build a Register URL proxied through rss2json
+    function _regUrl(tag){
+      return 'https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(
+        'https://api.theregister.com/api/v1/article?query=tag:'+encodeURIComponent(tag)+
+        '&orderBy=published&site_id=2&remapper=rss&limit=8&_cb='+Date.now()
+      );
+    }
     var FEEDS={
       homeOgFeed:{
         color:'amber',
+        direct:_regUrl('energy'),
         urls:['https://oilprice.com/rss/main','https://www.rigzone.com/news/rss/','https://www.ogj.com/rss']
       },
       homeAiFeed:{
         color:'blue',
-        urls:['https://venturebeat.com/category/ai/feed/','https://techcrunch.com/category/artificial-intelligence/feed/','https://www.theverge.com/rss/ai-artificial-intelligence/index.xml','https://www.technologyreview.com/feed/']
+        direct:_regUrl('artificial-intelligence'),
+        urls:['https://venturebeat.com/category/ai/feed/','https://techcrunch.com/category/artificial-intelligence/feed/','https://www.theverge.com/rss/ai-artificial-intelligence/index.xml']
       },
       homeBbcFeed:{
         color:'red',
@@ -1955,7 +2013,7 @@ document.addEventListener('DOMContentLoaded',function(){
       },
       homeWorldFeed:{
         color:'green',
-        urls:['https://rss.nytimes.com/services/xml/rss/nyt/Business.xml','https://feeds.reuters.com/reuters/businessNews','https://feeds.bbci.co.uk/news/business/rss.xml']
+        urls:['https://rss.nytimes.com/services/xml/rss/nyt/Business.xml','https://feeds.bbci.co.uk/news/business/rss.xml']
       }
     };
     function ltile2(item,bar){
@@ -1990,7 +2048,22 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     Object.keys(FEEDS).forEach(function(id){
       var f=FEEDS[id];
-      tryFeed2(f.urls,0,id,f.color);
+      if(f.direct){
+        // Try The Register first; on failure fall through to backup urls
+        fetch(f.direct)
+          .then(function(r){return r.json();})
+          .then(function(d){
+            var el=document.getElementById(id);
+            if(d.items&&d.items.length>0&&el){
+              el.innerHTML=d.items.slice(0,3).map(function(it){return ltile2(it,f.color);}).join('');
+            } else {
+              tryFeed2(f.urls,0,id,f.color);
+            }
+          })
+          .catch(function(){tryFeed2(f.urls,0,id,f.color);});
+      } else {
+        tryFeed2(f.urls,0,id,f.color);
+      }
     });
   })();
 
