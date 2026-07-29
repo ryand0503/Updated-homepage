@@ -41,6 +41,116 @@ window.QUICK_LINKS = [
   { icon:'📁', label:'Forms & Docs',    url:'', page:'documents' },
   { icon:'🚨', label:'HSSE Hotline',    url:'tel:+60321668888', modal:null }
 ];
+
+/* =====================================================================
+   ANNOUNCEMENTS — edit these to change the banner strip on home page
+   Fields: dot (red/green/blue/amber), urgent (true/false),
+           tag (label), tagStyle (inline CSS), text (HTML ok),
+           date (right-side label), modal (same format as QUICK_LINKS)
+   ===================================================================== */
+window.ANNOUNCEMENTS = [
+  { dot:'red', urgent:true, tag:'URGENT', tagStyle:'background:rgba(192,17,31,.12);color:var(--red);',
+    text:'SAP e-learning mandatory by <strong>31 August</strong> — non-completion delays system access from 1 Oct',
+    date:'IT Division',
+    modal:{title:'SAP S4HANA Mandatory E-Learning — Deadline 31 August',tag:'IT',tagClass:'blue',source:'IT Division',date:'Deadline: 31 Aug 2025',img:'',emoji:'⚠️',
+      excerpt:'All employees must complete the mandatory SAP S4HANA e-learning modules before 31 August 2025. Non-completion will result in delayed system access from 1 October. Access via the Petra Learning Centre portal. IT Helpdesk: ext. 8888.'} },
+  { dot:'green', tag:'HOLIDAY', tagStyle:'background:rgba(26,140,85,.12);color:#1a8c55;',
+    text:'Hari Raya Haji — Office closed <strong>31 July</strong>. Next working day: 1 August 2025',
+    date:'31 Jul 2025',
+    modal:{title:'Hari Raya Haji — Office Closure 31 July',tag:'Holiday',tagClass:'green',source:'HR Division',date:'31 Jul 2025',img:'',emoji:'🌙',
+      excerpt:'Hari Raya Haji falls on 31 July 2025. All offices will be closed. Offshore operations continue on normal rotation. Emergency contacts remain active. Next working day: 1 August 2025.'} },
+  { dot:'blue', tag:'NEW', tagStyle:'background:rgba(26,95,180,.12);color:#1a5fb4;',
+    text:'HR Policy Manual Rev. 7 in effect — includes new FWA policy. Acknowledge receipt by <strong>15 August</strong>',
+    date:'Human Resources',
+    modal:{title:'HR Policy Manual Rev. 7 — Now in Effect',tag:'HR',tagClass:'blue',source:'Human Resources',date:'Jul 2025',img:'',emoji:'💼',
+      excerpt:'HR Policy Manual Rev. 7 is now in effect. Key changes: new Flexible Work Arrangement (FWA) policy for Grade 3+ non-ops staff, updated parental leave provisions (90 days maternity, 7 days paternity), and revised performance bonus structure. Acknowledge receipt by 15 August via HRiQ.'} },
+  { dot:'amber', tag:'ACTION', tagStyle:'background:rgba(196,106,0,.12);color:#c46a00;',
+    text:'Petra Excellence Awards — nominations close <strong>25 July</strong>. 7 categories incl. new Sustainability Champion',
+    date:'Corp. Comms',
+    modal:{title:'Nominations Open — Petra Excellence Awards 2025',tag:'Corporate',tagClass:'amber',source:'Corporate Comms',date:'Deadline: 25 Jul 2025',img:'',emoji:'🏆',
+      excerpt:'Nominations for the Petra Excellence Awards 2025 are now open across 7 categories including the new Sustainability Champion award. Deadline: 25 July 2025. Submit to corporate.comms@petraenergy.com.my.'} }
+];
+
+/* =====================================================================
+   COMPANY HIGHLIGHTS CAROUSEL — edit to change the hero image tiles
+   Fields: size (size-s / size-m / size-l), img (URL or base64),
+           bg (gradient fallback), sector (label with emoji),
+           badge / badgeClass / badgeStyle, headline, teaser,
+           date, cta (button label), ctaPage (internal page name)
+           OR ctaUrl (external URL), modal (full detail popup)
+   ===================================================================== */
+window.COMPANY_HIGHLIGHTS = [
+  { size:'size-l',
+    img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',
+    bg:'linear-gradient(135deg,#1a0a0a,#5c1020)',
+    sector:'📰 Petra News', badge:'Breaking', badgeClass:'',
+    headline:'Petra Secures RM 420M Kasawari HUC Contract',
+    teaser:'Awarded by PETRONAS Carigali — 36-month HUC scope, Kasawari-A &amp; B platforms, South China Sea.',
+    date:'4 days ago', cta:'Read more →', ctaPage:'news',
+    modal:{title:'Petra Energy Secures RM 420M HUC Contract for Kasawari Gas Development',tag:'Breaking',tagClass:'',source:'Corporate Affairs',date:'4 days ago',
+      img:'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80',emoji:'📰',
+      excerpt:'Petra Energy Berhad has been awarded the Hook-Up and Commissioning scope by PETRONAS Carigali for the Kasawari Gas Development. The contract spans 36 months and covers all HUC activities on Kasawari-A and Kasawari-B platforms in the South China Sea.'} },
+  { size:'size-m',
+    img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80',
+    bg:'linear-gradient(135deg,#061a0e,#1a4a28)',
+    sector:'🛡 HSSE', badge:'On Track', badgeClass:'green',
+    headline:'847 LTI-Free Days — Strongest Safety Streak Ever',
+    teaser:'96% training compliance. Near-miss reports down 20% vs May. All audit scores above 88%.',
+    date:'July 2025', cta:'Read more →', ctaPage:'hsse',
+    modal:{title:'847 LTI-Free Days — Strongest Safety Streak Ever',tag:'HSSE',tagClass:'',source:'HSSE Division',date:'July 2025',
+      img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80',emoji:'🛡',
+      excerpt:'847 consecutive Lost Time Incident-free days as of July 2025. 96% training compliance across all sites. Near-miss reports down 20% vs May. All site audit scores above 88%. HSSE team on track for the annual Zero Harm target.'} },
+  { size:'size-m',
+    img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80',
+    bg:'linear-gradient(135deg,#060e1a,#1a3060)',
+    sector:'👥 HR &amp; Benefits', badge:'New', badgeClass:'blue',
+    headline:'Flexible Work Arrangement — Applications Open',
+    teaser:'Grade 3+ non-ops: up to 2 WFH days/week. Core hours 9am–4pm. Effective 1 August 2025.',
+    date:'Effective 1 Aug', cta:'Read more →', ctaPage:'hr',
+    modal:{title:'Flexible Work Arrangement — Applications Now Open',tag:'HR',tagClass:'blue',source:'Human Resources',date:'Effective Aug 2025',
+      img:'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80',emoji:'🏠',
+      excerpt:'Effective 1 August 2025, eligible employees (Grade 3 and above, non-operations roles) may apply for up to 2 days work-from-home per week. Core hours: 9am-4pm. Full policy in HR Policy Manual Rev. 7.'} },
+  { size:'size-m',
+    img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80',
+    bg:'linear-gradient(135deg,#100620,#3a1a6c)',
+    sector:'🏗 Projects', badge:'23 Active', badgeClass:'', badgeStyle:'background:#7c3aed;',
+    headline:'Kasawari HUC Enters Mobilisation Phase',
+    teaser:'RM 420M contract underway. Cendor Phase 3: 62% complete. SAP go-live: 1 Oct 2025.',
+    date:'July 2025', cta:'Read more →', ctaPage:'projects',
+    modal:{title:'Kasawari HUC Enters Mobilisation Phase',tag:'Projects',tagClass:'',source:'Projects Division',date:'July 2025',
+      img:'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80',emoji:'🏗',
+      excerpt:'The RM 420M Kasawari HUC contract has entered the mobilisation phase. Cendor Phase 3 is 62% complete. SAP go-live remains on track for 1 October 2025. 23 active projects across Malaysia and Brunei.'} },
+  { size:'size-m',
+    img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80',
+    bg:'linear-gradient(135deg,#1a0600,#6a2000)',
+    sector:'📅 Calendar', badge:'This Week', badgeClass:'',
+    headline:'Annual Fire Drill — 18 July 10AM, All Buildings',
+    teaser:'Mandatory participation. KL HQ 10:00 AM. Next: Hari Raya Haji 31 July (office closed).',
+    date:'18 Jul 2025', cta:'Full calendar →', ctaPage:'calendar',
+    modal:{title:'Annual Fire Drill 2025 — All Offices 18 July',tag:'Calendar',tagClass:'',source:'HSSE Division',date:'18 Jul 2025',
+      img:'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80',emoji:'🔥',
+      excerpt:'Annual fire drill across all Petra Energy offices on 18 July 2025. KL HQ evacuation: 10:00 AM sharp. All employees must participate and proceed to designated assembly points. Hari Raya Haji office closure 31 July.'} },
+  { size:'size-m',
+    img:'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80',
+    bg:'linear-gradient(135deg,#100520,#3a1860)',
+    sector:'📸 Gallery', badge:'', badgeClass:'',
+    headline:'Q2 Town Hall, Cendor Team &amp; Safety Awards Night',
+    teaser:'Latest photos from KL HQ, Cendor Offshore, BOSIET Batch 12 &amp; more.',
+    date:'Jun–Jul 2025', cta:'View gallery →', ctaPage:'gallery',
+    modal:{title:'Gallery: Q2 Town Hall, Cendor Team & Safety Awards Night',tag:'Gallery',tagClass:'',source:'Corporate Comms',date:'Jun–Jul 2025',
+      img:'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80',emoji:'📸',
+      excerpt:'Latest photos from Q2 Town Hall at KL HQ, Cendor Offshore team, BOSIET Training Batch 12, and the Safety Awards Night. View the full gallery for all event photos.'} },
+  { size:'size-m',
+    img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80',
+    bg:'linear-gradient(135deg,#0a1200,#2a4000)',
+    sector:'📋 Policies', badge:'Updated', badgeClass:'amber',
+    headline:'HSSE Policy Manual Rev. 5 — Now Published',
+    teaser:'Contractor safety management, life-saving rules &amp; incident reporting all updated for 2025.',
+    date:'Jun 2025', cta:'Read more →', ctaPage:'policies',
+    modal:{title:'HSSE Policy Manual Rev. 5 — Now Published',tag:'Policies',tagClass:'',source:'HSSE & Compliance',date:'Jun 2025',
+      img:'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80',emoji:'📋',
+      excerpt:'HSSE Policy Manual Rev. 5 is now published. Key updates: contractor safety management, updated life-saving rules, new incident reporting flow, and 2025 audit checklist.'} }
+];
 </script>
 <style>
 :root {
@@ -326,7 +436,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg-page);color
 .ql-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);margin-bottom:8px;}
 .ql-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;}
 .ql-btn{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:11px;font-weight:600;color:var(--text2);text-decoration:none;cursor:pointer;transition:background .15s,color .15s,transform .15s;text-align:center;line-height:1.2;}
-.ql-btn span{font-size:20px;line-height:1;}
+.ql-btn span:first-child{font-size:22px;line-height:1;}
+.ql-btn span:last-child{font-size:10px;line-height:1.3;}
 .ql-btn:hover{background:var(--red);color:white;border-color:var(--red);transform:translateY(-2px);}
 /* ── ANNOUNCEMENTS ── */
 .ann-section{margin-bottom:4px;}
@@ -505,7 +616,8 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
     <strong style="font-size:14px;">✏️ Edit Mode — Customise Portal Links</strong>
     <div style="display:flex;gap:10px;">
-      <button onclick="saveEditedLinks()" style="background:var(--red);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-weight:700;cursor:pointer;">Save &amp; Download</button>
+      <button onclick="saveEditedLinks()" style="background:var(--red);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-weight:700;cursor:pointer;">Save Links</button>
+      <button onclick="downloadPortal()" style="background:#1a5fb4;color:#fff;border:none;border-radius:6px;padding:6px 16px;font-weight:700;cursor:pointer;">⬇ Download HTML</button>
       <button onclick="toggleEditMode()" style="background:var(--border);color:var(--text);border:none;border-radius:6px;padding:6px 14px;cursor:pointer;">Close</button>
     </div>
   </div>
@@ -588,135 +700,14 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
       <!-- ANNOUNCEMENTS -->
       <div class="ann-section">
         <div class="hl-section-hdr" style="margin-top:18px;">📢 Announcements</div>
-        <div class="ann-list">
-          <div class="ann-item ann-urgent" onclick="openModal({title:'SAP S4HANA Mandatory E-Learning — Deadline 31 August',tag:'IT',tagClass:'blue',source:'IT Division',date:'Deadline: 31 Aug 2025',img:'',emoji:'⚠️',excerpt:'All employees must complete the mandatory SAP S4HANA e-learning modules before 31 August 2025. Non-completion will result in delayed system access from 1 October. Access the modules via the Petra Learning Centre portal. Contact IT Helpdesk at ext. 8888 for login issues.'})">
-            <span class="ann-dot red"></span>
-            <div class="ann-body"><span class="ann-tag" style="background:rgba(192,17,31,.12);color:var(--red);">URGENT</span><span class="ann-text">SAP e-learning mandatory by <strong>31 August</strong> — non-completion delays your system access from 1 Oct</span></div>
-            <span class="ann-date">IT Division</span>
-          </div>
-          <div class="ann-item" onclick="openModal({title:'Hari Raya Haji — Office Closure 31 July',tag:'Holiday',tagClass:'green',source:'HR Division',date:'31 Jul 2025',img:'',emoji:'🌙',excerpt:'Hari Raya Haji falls on 31 July 2025. All offices will be closed. Offshore operations continue on normal rotation. Emergency contacts remain active. Next working day: 1 August 2025.'})">
-            <span class="ann-dot green"></span>
-            <div class="ann-body"><span class="ann-tag" style="background:rgba(26,140,85,.12);color:#1a8c55;">HOLIDAY</span><span class="ann-text">Hari Raya Haji — Office closed <strong>31 July</strong>. Next working day: 1 August 2025</span></div>
-            <span class="ann-date">31 Jul 2025</span>
-          </div>
-          <div class="ann-item" onclick="openModal({title:'HR Policy Manual Rev. 7 — Now in Effect',tag:'HR',tagClass:'blue',source:'Human Resources',date:'Jul 2025',img:'',emoji:'💼',excerpt:'HR Policy Manual Rev. 7 is now in effect. Key changes: new Flexible Work Arrangement (FWA) policy for Grade 3+ non-ops staff, updated parental leave provisions (90 days maternity, 7 days paternity), and revised performance bonus structure. All employees must acknowledge receipt by 15 August via HRiQ.'})">
-            <span class="ann-dot blue"></span>
-            <div class="ann-body"><span class="ann-tag" style="background:rgba(26,95,180,.12);color:#1a5fb4;">NEW</span><span class="ann-text">HR Policy Manual Rev. 7 in effect — includes new FWA policy. Acknowledge receipt by <strong>15 August</strong></span></div>
-            <span class="ann-date">Human Resources</span>
-          </div>
-          <div class="ann-item" onclick="openModal({title:'Nominations Open — Petra Excellence Awards 2025',tag:'Corporate',tagClass:'amber',source:'Corporate Comms',date:'Deadline: 25 Jul 2025',img:'',emoji:'🏆',excerpt:'Nominations for the Petra Excellence Awards 2025 are now open across 7 categories including the new Sustainability Champion award. Deadline: 25 July 2025. Submit to corporate.comms@petraenergy.com.my.'})">
-            <span class="ann-dot amber"></span>
-            <div class="ann-body"><span class="ann-tag" style="background:rgba(196,106,0,.12);color:#c46a00;">ACTION</span><span class="ann-text">Petra Excellence Awards — nominations close <strong>25 July</strong>. 7 categories incl. new Sustainability Champion</span></div>
-            <span class="ann-date">Corp. Comms</span>
-          </div>
-        </div>
+        <div class="ann-list" id="annList"><!-- generated from window.ANNOUNCEMENTS config --></div>
       </div>
 
       <!-- COMPANY HIGHLIGHTS -->
       <div class="hl-section-hdr" style="margin-top:20px;">🏢 Company Highlights</div>
       <div class="hl-carousel-wrap" id="hlCarouselWrap">
         <div class="hl-carousel-track-outer">
-          <div class="hl-carousel-track" id="hlTrack">
-
-            <div class="hl-card size-l" data-link="news" data-modal='{"title":"Petra Energy Secures RM 420M HUC Contract for Kasawari Gas Development","tag":"Breaking","tagClass":"","source":"Corporate Affairs","date":"4 days ago","img":"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80","emoji":"📰","excerpt":"Petra Energy Berhad has been awarded the Hook-Up and Commissioning scope by PETRONAS Carigali for the Kasawari Gas Development. The contract spans 36 months and covers all HUC activities on Kasawari-A and Kasawari-B platforms in the South China Sea."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#1a0a0a,#5c1020)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">📰</span> Petra News <span class="hl-badge">Breaking</span></div>
-                <div class="hl-headline">Petra Secures RM 420M Kasawari HUC Contract</div>
-                <div class="hl-teaser">Awarded by PETRONAS Carigali — 36-month HUC scope, Kasawari-A &amp; B platforms, South China Sea.</div>
-                <div class="hl-footer"><span class="hl-date">4 days ago</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('news')">Read more →</button></div>
-              </div>
-            </div>
-
-            <div class="hl-card size-m" data-link="hsse" data-modal='{"title":"847 LTI-Free Days — Strongest Safety Streak Ever","tag":"HSSE","tagClass":"","source":"HSSE Division","date":"July 2025","img":"https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80","emoji":"🛡","excerpt":"847 consecutive Lost Time Incident-free days. 96% training compliance across all sites. Near-miss reports down 20% vs May. All site audit scores above 88%. HSSE team on track for the annual Zero Harm target."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=700&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#061a0e,#1a4a28)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">🛡</span> HSSE <span class="hl-badge green">On Track</span></div>
-                <div class="hl-headline">847 LTI-Free Days — Strongest Safety Streak Ever</div>
-                <div class="hl-teaser">96% training compliance. Near-miss reports down 20% vs May. All audit scores above 88%.</div>
-                <div class="hl-footer"><span class="hl-date">July 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('hsse')">Read more →</button></div>
-              </div>
-            </div>
-
-            <div class="hl-card size-m" data-link="" data-modal='{"title":"Flexible Work Arrangement — Applications Now Open","tag":"HR","tagClass":"blue","source":"Human Resources","date":"Effective Aug 2025","img":"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80","emoji":"🏠","excerpt":"Effective 1 August 2025, eligible employees (Grade 3 and above, non-operations roles) may apply for up to 2 days work-from-home per week. Core hours: 9am-4pm. Full policy in HR Policy Manual Rev. 7."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#060e1a,#1a3060)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">👥</span> HR &amp; Benefits <span class="hl-badge blue">New</span></div>
-                <div class="hl-headline">Flexible Work Arrangement — Applications Open</div>
-                <div class="hl-teaser">Grade 3+ non-ops: up to 2 WFH days/week. Effective 1 August 2025.</div>
-                <div class="hl-footer"><span class="hl-date">Effective 1 Aug</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('hr')">Read more →</button></div>
-              </div>
-            </div>
-
-            <div class="hl-card size-m" data-link="projects" data-modal='{"title":"Kasawari HUC Enters Mobilisation Phase","tag":"Projects","tagClass":"","source":"Projects Division","date":"July 2025","img":"https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80","emoji":"🏗","excerpt":"The RM 420M Kasawari HUC contract has entered the mobilisation phase. Cendor Phase 3 is 62% complete. SAP go-live remains on track for 1 October 2025. 23 active projects across Malaysia and Brunei."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=700&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#100620,#3a1a6c)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">🏗</span> Projects <span class="hl-badge" style="background:#7c3aed;">23 Active</span></div>
-                <div class="hl-headline">Kasawari HUC Enters Mobilisation Phase</div>
-                <div class="hl-teaser">RM 420M contract underway. Cendor Phase 3: 62% complete. SAP go-live: 1 Oct 2025.</div>
-                <div class="hl-footer"><span class="hl-date">July 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('projects')">Read more →</button></div>
-              </div>
-            </div>
-
-            <div class="hl-card size-m" data-link="" data-modal='{"title":"Annual Fire Drill 2025 — All Offices 18 July","tag":"Calendar","tagClass":"","source":"HSSE Division","date":"18 Jul 2025","img":"https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80","emoji":"🔥","excerpt":"Annual fire drill across all Petra Energy offices on 18 July 2025. KL HQ evacuation: 10:00 AM sharp. All employees must participate and proceed to designated assembly points. Hari Raya Haji office closure 31 July."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#1a0600,#6a2000)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">📅</span> Calendar <span class="hl-badge">This Week</span></div>
-                <div class="hl-headline">Annual Fire Drill — 18 July 10AM, All Buildings</div>
-                <div class="hl-teaser">Mandatory participation. KL HQ 10:00 AM. Next: Hari Raya Haji 31 July (office closed).</div>
-                <div class="hl-footer"><span class="hl-date">18 Jul 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('calendar')">Full calendar →</button></div>
-              </div>
-            </div>
-
-            <div class="hl-card size-m" data-link="gallery" data-modal='{"title":"Gallery: Q2 Town Hall, Cendor Team & Safety Awards Night","tag":"Gallery","tagClass":"","source":"Corporate Comms","date":"Jun–Jul 2025","img":"https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80","emoji":"📸","excerpt":"Latest photos from Q2 Town Hall at KL HQ, Cendor Offshore team, BOSIET Training Batch 12, and the Safety Awards Night. View the full gallery for all event photos."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=700&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#100520,#3a1860)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">📸</span> Gallery</div>
-                <div class="hl-headline">Q2 Town Hall, Cendor Team &amp; Safety Awards Night</div>
-                <div class="hl-teaser">Latest photos from KL HQ, Cendor Offshore, BOSIET Batch 12 &amp; more.</div>
-                <div class="hl-footer"><span class="hl-date">Jun–Jul 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('gallery')">View gallery →</button></div>
-              </div>
-            </div>
-
-            <div class="hl-card size-m" data-link="policies" data-modal='{"title":"HSSE Policy Manual Rev. 5 — Now Published","tag":"Policies","tagClass":"","source":"HSSE &amp; Compliance","date":"Jun 2025","img":"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80","emoji":"📋","excerpt":"HSSE Policy Manual Rev. 5 is now published. Key updates: contractor safety management, updated life-saving rules, new incident reporting flow, and 2025 audit checklist."}'>
-              <div class="hl-bg" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80')"></div>
-              <div class="hl-bg-placeholder" style="background:linear-gradient(135deg,#0a1200,#2a4000)"></div>
-              <div class="hl-overlay"></div>
-              <div class="hl-size-picker" onclick="event.stopPropagation()"><button class="hl-sz-btn" onclick="hlResize(this,'size-s')">S</button><button class="hl-sz-btn" onclick="hlResize(this,'size-m')">M</button><button class="hl-sz-btn" onclick="hlResize(this,'size-l')">L</button></div>
-              <button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>
-              <div class="hl-content">
-                <div class="hl-sector"><span class="hl-icon">📋</span> Policies <span class="hl-badge amber">Updated</span></div>
-                <div class="hl-headline">HSSE Policy Manual Rev. 5 — Now Published</div>
-                <div class="hl-teaser">Contractor safety management, life-saving rules &amp; incident reporting all updated for 2025.</div>
-                <div class="hl-footer"><span class="hl-date">Jun 2025</span><button class="hl-cta" onclick="event.stopPropagation();switchPage('policies')">Read more →</button></div>
-              </div>
-            </div>
-
-          </div>
+          <div class="hl-carousel-track" id="hlTrack"><!-- generated from window.COMPANY_HIGHLIGHTS config --></div>
         </div>
         <!-- Carousel nav -->
         <div class="hl-nav">
@@ -1665,33 +1656,7 @@ window.renderFeedNews=function(feedKey,silent){
 };
 window.refreshCurrentTab=function(s){if(window._curTab==='petra')window.renderPetraNews();else window.renderFeedNews(window._curTab,s);};
 
-/* ── CARD CLICK — reads data-modal attribute ── */
-document.addEventListener('click',function(e){
-  var card=e.target.closest('.hl-card');
-  if(!card)return;
-  if(e.target.closest('.hl-size-picker')||e.target.closest('.hl-edit-img-btn')||e.target.closest('.hl-cta'))return;
-  var raw=card.getAttribute('data-modal');
-  if(raw){
-    var data;
-    try{data=JSON.parse(raw);}catch(err){
-      // fallback: build data from DOM
-      data={
-        title:(card.querySelector('.hl-headline')||{}).textContent||'',
-        tag:(card.querySelector('.hl-sector')||{}).textContent||'',
-        tagClass:'',source:'',date:(card.querySelector('.hl-date')||{}).textContent||'',
-        excerpt:(card.querySelector('.hl-teaser')||{}).textContent||'',img:'',emoji:'📰'
-      };
-    }
-    // always grab image from the card background if data.img is empty
-    if(!data.img){
-      var bgEl=card.querySelector('.hl-bg');
-      if(bgEl){var bgs=bgEl.style.backgroundImage;if(bgs)data.img=bgs.replace(/^url\(['"]?/,'').replace(/['"]?\)$/,'');}
-    }
-    window.openModal(data);
-  } else {
-    var pg=card.getAttribute('data-link');if(pg)window.switchPage(pg);
-  }
-});
+/* ── CARD CLICK — handled by track event listener generated in DOMContentLoaded ── */
 
 /* ── TILE EDITOR PANEL ── */
 var _hlEditTarget=null;
@@ -1772,9 +1737,19 @@ window.hlSaveImg=function(){
       cta.setAttribute('onclick','event.stopPropagation()');
     }
   }
-  // update data-modal img & title
-  var raw=_hlEditTarget.getAttribute('data-modal');
-  if(raw){try{var d=JSON.parse(raw);if(url)d.img=url;if(title)d.title=title;if(caption)d.excerpt=caption;_hlEditTarget.setAttribute('data-modal',JSON.stringify(d));}catch(err){}}
+  // update _HL_DATA so modal shows updated content
+  var hlIdx=parseInt(_hlEditTarget.getAttribute('data-hl'),10);
+  if(!isNaN(hlIdx)&&window._HL_DATA&&window._HL_DATA[hlIdx]){
+    var hd=window._HL_DATA[hlIdx];
+    if(url){hd.img=url;if(hd.modal)hd.modal.img=url;}
+    if(title){hd.headline=title;if(hd.modal)hd.modal.title=title;}
+    if(caption){hd.teaser=caption;if(hd.modal)hd.modal.excerpt=caption;}
+    var btnLink=document.getElementById('hlEditBtnLink').value.trim();
+    var btnLabel=document.getElementById('hlEditBtnLabel').value.trim();
+    var newTab=document.getElementById('hlEditNewTab').checked;
+    if(btnLink){hd.ctaUrl=btnLink;hd.ctaPage='';hd.cta=btnLabel||hd.cta;}
+    else if(btnLabel){hd.cta=btnLabel;}
+  }
   hlCloseImgEditor();
 };
 window.hlCloseImgEditor=function(){
@@ -1848,6 +1823,20 @@ window.toggleEditMode=function(){
   }
   panel.style.display=visible?'none':'block';
 };
+window.downloadPortal=function(){
+  var html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  var blob=new Blob([html],{type:'text/html;charset=utf-8'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='portal.html';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1000);
+  var msg=document.createElement('div');
+  msg.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a5fb4;color:#fff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.2);';
+  msg.textContent='⬇ portal.html downloaded — upload this file to GitHub';
+  document.body.appendChild(msg);setTimeout(function(){msg.remove();},3500);
+};
+
 window.saveEditedLinks=function(){
   var keys=Object.keys(_NAV_LABELS);
   keys.forEach(function(k){
@@ -1862,21 +1851,91 @@ window.saveEditedLinks=function(){
 
 document.addEventListener('DOMContentLoaded',function(){
 
-  // Generate quick links from config
+  // ── GENERATE QUICK LINKS ──
   (function(){
     var bar=document.getElementById('quickLinksBar');if(!bar)return;
     var links=window.QUICK_LINKS||[];
+    // store configs globally so click handler can access them
+    window._QL_DATA=links;
     bar.innerHTML=links.map(function(ql,i){
-      var handler='';
-      if(ql.url){handler='onclick="window.open(\''+ql.url+'\',\'_blank\')"';}
-      else if(ql.page){handler='onclick="switchPage(\''+ql.page+'\')"';}
-      else if(ql.modal){
-        var m=JSON.stringify(ql.modal).replace(/'/g,"&#39;");
-        handler='onclick="openModal('+m.replace(/"/g,"'")+')"}';
-        handler='onclick="openModal(JSON.parse(this.dataset.m))" data-m=\''+JSON.stringify(ql.modal)+'\'';
-      }
-      return '<button class="ql-btn" '+handler+'><span class="ql-icon">'+ql.icon+'</span><span>'+ql.label+'</span></button>';
+      return '<button class="ql-btn" data-ql="'+i+'"><span>'+ql.icon+'</span><span>'+ql.label+'</span></button>';
     }).join('');
+    bar.addEventListener('click',function(e){
+      var btn=e.target.closest('.ql-btn');if(!btn)return;
+      var idx=parseInt(btn.getAttribute('data-ql'),10);
+      var ql=window._QL_DATA[idx];if(!ql)return;
+      if(ql.url){window.open(ql.url,'_blank');}
+      else if(ql.page){window.switchPage(ql.page);}
+      else if(ql.modal){window.openModal(ql.modal);}
+    });
+  })();
+
+  // ── GENERATE ANNOUNCEMENTS ──
+  (function(){
+    var list=document.getElementById('annList');if(!list)return;
+    var anns=window.ANNOUNCEMENTS||[];
+    list.innerHTML=anns.map(function(a,i){
+      var mj=JSON.stringify(a.modal||{});
+      return '<div class="ann-item'+(a.urgent?' ann-urgent':'')+'" data-ann="'+i+'">'
+        +'<span class="ann-dot '+a.dot+'"></span>'
+        +'<div class="ann-body"><span class="ann-tag" style="'+a.tagStyle+'">'+a.tag+'</span>'
+        +'<span class="ann-text">'+a.text+'</span></div>'
+        +'<span class="ann-date">'+a.date+'</span>'
+        +'</div>';
+    }).join('');
+    window._ANN_DATA=anns;
+    list.addEventListener('click',function(e){
+      var item=e.target.closest('.ann-item');if(!item)return;
+      var idx=parseInt(item.getAttribute('data-ann'),10);
+      var a=window._ANN_DATA[idx];if(!a||!a.modal)return;
+      window.openModal(a.modal);
+    });
+  })();
+
+  // ── GENERATE COMPANY HIGHLIGHTS CAROUSEL ──
+  (function(){
+    var track=document.getElementById('hlTrack');if(!track)return;
+    var highlights=window.COMPANY_HIGHLIGHTS||[];
+    window._HL_DATA=highlights;
+    track.innerHTML=highlights.map(function(h,i){
+      var badge=h.badge?('<span class="hl-badge'+(h.badgeClass?' '+h.badgeClass:'')+(h.badgeStyle?'" style="'+h.badgeStyle:'')+'">'+ h.badge+'</span>'):'';
+      var ctaOnclick=h.ctaUrl
+        ?'onclick="event.stopPropagation();window.open(\''+h.ctaUrl+'\',\'_blank\')"'
+        :'onclick="event.stopPropagation();window.switchPage(\''+h.ctaPage+'\')"';
+      return '<div class="hl-card '+h.size+'" data-hl="'+i+'">'
+        +'<div class="hl-bg" style="background-image:url(\''+h.img+'\')"></div>'
+        +'<div class="hl-bg-placeholder" style="background:'+h.bg+'"></div>'
+        +'<div class="hl-overlay"></div>'
+        +'<div class="hl-size-picker" onclick="event.stopPropagation()">'
+        +'<button class="hl-sz-btn" onclick="hlResize(this,\'size-s\')">S</button>'
+        +'<button class="hl-sz-btn" onclick="hlResize(this,\'size-m\')">M</button>'
+        +'<button class="hl-sz-btn" onclick="hlResize(this,\'size-l\')">L</button>'
+        +'</div>'
+        +'<button class="hl-edit-img-btn" onclick="event.stopPropagation();hlEditImg(this)">🖼 Change image</button>'
+        +'<div class="hl-content">'
+        +'<div class="hl-sector">'+h.sector+' '+badge+'</div>'
+        +'<div class="hl-headline">'+h.headline+'</div>'
+        +'<div class="hl-teaser">'+h.teaser+'</div>'
+        +'<div class="hl-footer"><span class="hl-date">'+h.date+'</span>'
+        +'<button class="hl-cta" '+ctaOnclick+'>'+h.cta+'</button>'
+        +'</div></div></div>';
+    }).join('');
+    // click on card body opens modal
+    track.addEventListener('click',function(e){
+      var card=e.target.closest('.hl-card');if(!card)return;
+      if(e.target.closest('.hl-size-picker')||e.target.closest('.hl-edit-img-btn')||e.target.closest('.hl-cta'))return;
+      var idx=parseInt(card.getAttribute('data-hl'),10);
+      var h=window._HL_DATA[idx];if(!h)return;
+      var m=h.modal||{};
+      // pull live bg image if user changed it
+      var bg=card.querySelector('.hl-bg');
+      if(bg&&!m.img){var s=bg.style.backgroundImage;m=Object.assign({},m,{img:s.replace(/^url\(['"]?/,'').replace(/['"]?\)$/,'')});}
+      // pull live headline/teaser in case user edited
+      var hl=card.querySelector('.hl-headline');if(hl)m=Object.assign({},m,{title:hl.textContent});
+      var te=card.querySelector('.hl-teaser');if(te)m=Object.assign({},m,{excerpt:m.excerpt||te.textContent});
+      window.openModal(m);
+    });
+    setTimeout(function(){hlGoTo(0);},100);
   })();
 
   // Fetch home page live feeds
