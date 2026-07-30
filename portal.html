@@ -558,14 +558,19 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
 .hlpanel-save:hover{background:#a0111f;}
 .hlpanel-cancel{background:var(--border);color:var(--text);border:none;border-radius:6px;padding:8px 16px;cursor:pointer;font-size:13px;}
 .live-tiles-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
-.ltile-skel{height:130px;border-radius:10px;background:linear-gradient(90deg,var(--border) 25%,var(--card) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;}
+.ltile-skel{height:220px;border-radius:10px;background:linear-gradient(90deg,var(--border) 25%,var(--card) 50%,var(--border) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.ltile{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:box-shadow .18s,transform .18s;position:relative;overflow:hidden;}
+.ltile{background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .18s,transform .18s;position:relative;overflow:hidden;}
 .ltile:hover{box-shadow:0 4px 18px rgba(0,0,0,.13);transform:translateY(-2px);}
+.ltile-img{width:100%;height:130px;overflow:hidden;flex-shrink:0;background:var(--border);}
+.ltile-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
+.ltile:hover .ltile-img img{transform:scale(1.04);}
+.ltile-img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:36px;}
+.ltile-body{padding:12px 14px;display:flex;flex-direction:column;gap:5px;flex:1;}
 .ltile-tag{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text2);}
 .ltile-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
 .ltile-src{font-size:11px;color:var(--text2);margin-top:auto;}
-.ltile-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red);}
+.ltile-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red);z-index:1;}
 .ltile-bar.amber{background:#c46a00;}.ltile-bar.green{background:#1a8c55;}.ltile-bar.blue{background:#1a5fb4;}
 @media(max-width:600px){.live-tiles-row{grid-template-columns:1fr;}}
 .hl-cta:hover{text-decoration:underline;}
@@ -672,17 +677,6 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
     </div>
   </div>
 
-  <!-- SPECIAL MENTION -->
-  <div class="special" onclick="openModal({title:'Special Mention — Ahmad Faizal bin Razali',tag:'Recognition',tagClass:'',source:'Operations Division',date:'14 July 2025',img:'',emoji:'⭐',excerpt:'Ahmad Faizal responded with exceptional calm and technical precision during the unplanned shutdown at Cendor Platform on 12 July. He contained the situation safely, coordinated the emergency shutdown procedure, and had operations restored 4 hours ahead of schedule — preventing an estimated RM 2.4M in deferred production. Nominated by: Mohd Azri, OIM Cendor. His actions are a perfect example of Petra\'s safety-first culture in action.'})">
-    <div class="sp-icon">⭐</div>
-    <div>
-      <div class="sp-label">Special Mention of the Day</div>
-      <div class="sp-name">Ahmad Faizal bin Razali <span style="font-size:12px;font-weight:400;color:var(--text2)">— Offshore Installation Engineer</span></div>
-      <div class="sp-reason">Outstanding response during unplanned shutdown at Cendor Platform — restored operations 4 hours ahead of schedule, preventing RM 2.4M in deferred production.</div>
-      <div class="sp-dept">Operations Division &nbsp;·&nbsp; Nominated by: Mohd Azri, OIM Cendor &nbsp;·&nbsp; <span style="color:var(--red);font-weight:600">Click to read more →</span></div>
-    </div>
-  </div>
-
   <!-- TICKER -->
   <div class="ticker">
     <span class="ticker-label">🌍 LIVE</span>
@@ -734,19 +728,19 @@ body.edit-mode .hl-card:hover .hl-edit-img-btn{display:block;}
       </div>
 
       <!-- AI NEWS -->
-      <div class="hl-section-hdr" style="margin-top:20px;">🤖 Artificial Intelligence</div>
+      <div class="hl-section-hdr" style="margin-top:20px;">🤖 AI &amp; Technology</div>
       <div class="live-tiles-row" id="homeAiFeed">
         <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
       </div>
 
-      <!-- BBC NEWS -->
-      <div class="hl-section-hdr" style="margin-top:20px;">📺 BBC News</div>
+      <!-- CYBERSECURITY -->
+      <div class="hl-section-hdr" style="margin-top:20px;">🔐 Cybersecurity</div>
       <div class="live-tiles-row" id="homeBbcFeed">
         <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
       </div>
 
-      <!-- WORLD & MARKETS -->
-      <div class="hl-section-hdr" style="margin-top:20px;">🌍 World &amp; Markets</div>
+      <!-- MOGSC NEWS -->
+      <div class="hl-section-hdr" style="margin-top:20px;">🏛️ MOGSC &amp; Industry</div>
       <div class="live-tiles-row" id="homeWorldFeed">
         <div class="ltile-skel"></div><div class="ltile-skel"></div><div class="ltile-skel"></div>
       </div>
@@ -2004,28 +1998,52 @@ document.addEventListener('DOMContentLoaded',function(){
       },
       homeAiFeed:{
         color:'blue',
-        direct:_regUrl('artificial-intelligence'),
-        urls:['https://venturebeat.com/category/ai/feed/','https://techcrunch.com/category/artificial-intelligence/feed/','https://www.theverge.com/rss/ai-artificial-intelligence/index.xml']
+        direct:_regUrl('ai'),
+        urls:[_regUrl('machine-learning'),_regUrl('software')]
       },
       homeBbcFeed:{
         color:'red',
-        urls:['https://feeds.bbci.co.uk/news/rss.xml','https://feeds.bbci.co.uk/news/world/rss.xml','https://feeds.bbci.co.uk/news/business/rss.xml']
+        direct:_regUrl('security'),
+        urls:[_regUrl('cloud'),_regUrl('infrastructure')]
       },
       homeWorldFeed:{
         color:'green',
-        urls:['https://rss.nytimes.com/services/xml/rss/nyt/Business.xml','https://feeds.bbci.co.uk/news/business/rss.xml']
+        direct:_regUrl('malaysia'),
+        urls:[_regUrl('energy'),_regUrl('upstream')]
       }
+    };
+    var FALLBACK_EMOJIS={amber:'⛽',blue:'🤖',red:'🔐',green:'💼','':`📰`};
+    var FALLBACK_GRADS={
+      amber:'linear-gradient(135deg,#3D1A00,#C46A00)',
+      blue:'linear-gradient(135deg,#0A1E3A,#1A4A8C)',
+      red:'linear-gradient(135deg,#3A0A0A,#8C1A1A)',
+      green:'linear-gradient(135deg,#0A3A1A,#1A8C55)',
+      '':'linear-gradient(135deg,#6B0810,#C0111F)'
     };
     function ltile2(item,bar){
       var t=(item.title||'No title').replace(/</g,'&lt;');
       var src=(item.source||item.author||'').replace(/</g,'&lt;');
       var ago='';try{ago=window.timeAgo?window.timeAgo(item.pubDate):'';}catch(e){}
       var url=item.link||item.url||'#';
+      var img=item.thumbnail&&item.thumbnail.startsWith('http')?item.thumbnail
+        :(item.enclosure&&item.enclosure.link&&item.enclosure.link.match(/\.(jpg|jpeg|png|webp)/i))?item.enclosure.link
+        :((item.description||'').match(/<img[^>]+src=["']([^"']+)["']/i)||[])[1]
+        ||((item.content||'').match(/<img[^>]+src=["']([^"']+)["']/i)||[])[1]
+        ||'';
+      var grad=FALLBACK_GRADS[bar]||FALLBACK_GRADS[''];
+      var emoji=FALLBACK_EMOJIS[bar]||'📰';
+      var imgHtml=img
+        ?'<img src="'+img+'" alt="" loading="lazy" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+         +'<div class="ltile-img-fallback" style="display:none;background:'+grad+'">'+emoji+'</div>'
+        :'<div class="ltile-img-fallback" style="background:'+grad+'">'+emoji+'</div>';
       return '<div class="ltile" onclick="window.open(\''+url+'\',\'_blank\')">'
         +'<div class="ltile-bar '+bar+'"></div>'
+        +'<div class="ltile-img">'+imgHtml+'</div>'
+        +'<div class="ltile-body">'
         +(src?'<div class="ltile-tag">'+src+'</div>':'')
         +'<div class="ltile-title">'+t+'</div>'
         +(ago?'<div class="ltile-src">'+ago+'</div>':'')
+        +'</div>'
         +'</div>';
     }
     function tryFeed2(urls,idx,containerId,barColor){
@@ -2085,7 +2103,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var MONS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var el=document.getElementById('tbDate');if(el)el.textContent=DAYS[now.getDay()]+', '+now.getDate()+' '+MONS[now.getMonth()]+' '+now.getFullYear();
   var hr=now.getHours(),gr=hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
-  var wn=document.getElementById('wName');if(wn)wn.textContent=gr+', Ryan';
+  var wn=document.getElementById('wName');if(wn)wn.textContent=gr+' 👋';
   var ws=document.getElementById('wSub');if(ws)ws.textContent=DAYS[now.getDay()]+', '+now.getDate()+' '+MONS[now.getMonth()]+' '+now.getFullYear()+' · 3 unread · 1 pending';
 
   fetch('https://api.open-meteo.com/v1/forecast?latitude=3.139&longitude=101.6869&current_weather=true')
